@@ -15,7 +15,7 @@ document.getElementById('form-cadastro').addEventListener('submit', async functi
   const data = await res.json();
  if (res.ok) {
     alert('Cadastrado com sucesso');
-    window.location.href = "../user/feed.html"
+    window.location.href = "../cadastros/login-doador.html"
   }
   else{
     

@@ -84,6 +84,8 @@ document.getElementById('form-cadastro').addEventListener('submit', async functi
 
 if (res.ok) {
     alert('Cadastrado com sucesso');
+        window.location.href = "../cadastros/login-ong.html"
+
   }
   else{
     alert(error)
