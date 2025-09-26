@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/pages/perfil/perfil.css" />
+      <link rel="stylesheet" href="../css/pages/feed/feed.css" />
+    <link rel="stylesheet" href="../css/partials/navbar.css" />
+  </head>
+
+  <body>
+      <header>
+      <nav class="navbar">
+        <div
+          class="flex"
+          style="justify-content: flex-start; width: 100%; gap: 1.5rem"
+        >
+          <div style="line-height: 50px">
+            <button class="hamburger" id="hamburger"></button>
+          </div>
+          <ul class="nav-links" id="navlinks">
+            <li><a href="feed.html">Explorar</a></li>
+            <li><a href="ongsFiltro.html">ONGs</a></li>
+          </ul>
+          <a class="nav-title" href="../user/feed.html"
+            ><img
+              src="../assets/svg/Logo UneONG FINAL.svg"
+              alt=""
+              width="80"
+              height="80"
+          /></a>
+        </div>
+
+        <input type="text" name="txtbuscar" id="txtbuscar" class="buscar" placeholder="Procure uma ong..." />
+        <label for="txtbuscar"><img src="../assets/png/icones/icone_buscar.png" class="buscarIcon" alt=""></label>
+        
+
+        <div
+          class="nav-elements"
+          style="width: 100px; justify-content: flex-end; padding-left: 1rem"
+        >
+          <div class="icon-menu">
+            <img
+              src="../assets/png/user-example.png"
+              alt=""
+              id="dropdown-perfil"
+            />
+          </div>
+          <div class="dropdown" id="dropdownMenu">
+            <div class="flex" style="width: 100%">
+              <img
+                class="foto-perfil"
+                src="../assets/jpg/foto-perfil-exemplo.jpg"
+                alt=""
+                id="foto_perfil2"
+              />
+              <div class="mn-part1">
+                <p class="name-account"></p>
+                <p class="email-account"></p>
+                <a class="perfil-account" href="perfil.html">Seu perfil ➞</a>
+              </div>
+            </div>
+            <div class="mn-part2">
+                        <ul>
+                            <li><a href="configuracoes.html"><img src="../assets/png/icones/icone_configuracoes.png" alt="" style="width: 25px; margin-right: 7px; vertical-align: middle;">Configurações</a></li>
+                        </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <div id="overlay"></div>
+
+      <!--Topo do perfil (fixo)-->
+
+  <div class="header-perfil" style="padding-top: 50px">
+    <img class="header-image" id="fotoHeader" src="" alt="" />
+  </div>
+  <div class="info-perfil">
+    <div class="perfil-containt">
+      <div class="div-1">
+        <div class="icon-profile">
+          <img src="" id="fotoPerfil" />
+        </div>
+        <h4 class="name-profile" id="txtnomeOngPerfil"></h4>
+      </div>
+      <div class="div-2">
+        <p><span>10</span> publicações</p>
+        <p></p>
+        <p><span id="txtseguidores"></span> seguidores</p>
+      </div>
+              <div class="div-3">
+          <a class="button" style="height: 25px; min-width: 60px; font-size: 14px; margin-right: 15px;" id="btnSeguir">Seguir</a>
+        </div>
+    </div>
+  </div>
+
+     <!--Coleções (fixo)-->
+
+    <div class="main-perfil">
+      <section class="feed-profile">
+        <div class="flex main-left">
+          <div class="itens-salvos">
+            <div class="title-itens">
+              <h4>Coleções</h4>
+            </div>
+
+            <div class="elementos-salvos">
+              <article class="item-colecao">
+                <a class="icon-colecao">V</a>
+                <a >Ver mais tarde</a>
+              </article>
+
+              <article class="item-colecao">
+                <a class="icon-colecao">V</a>
+                <a>Ver mais tarde</a>
+              </article>
+            </div>
+          </div>
+
+       <!--Mídia (fixo)-->
+
+          <div
+            class="container"
+            id="link-midia"
+            style="
+              width: 350px;
+              height: 20px;
+              display: flex;
+              padding: 1rem;
+              flex-direction: row;
+              align-items: center;
+              cursor: pointer;
+              justify-content: space-between;
+            "
+          >
+            <h4>
+              <a id="link-midia-text">Mídia</a>
+            </h4>
+            <a class="ver-tudo"> &gt;</a>
+          </div>
+
+        </div>
+
+        <div class="flex main-right">
+          <div
+            class="flex"
+            style="align-items: center; justify-content: center; width: 107%"
+          >
+
+          <!--Menu sobre e postagens (fixo)-->
+            <div class="menu-perfil">
+              <article class="option-menu">
+                <a id="link-sobre">Sobre</a>
+              </article>
+              <article class="option-menu">
+                <a
+                  id="link-postagens"
+                  >Postagens</a
+                >
+              </article>
+            </div>
+          </div>
+
+          <!-- ********** Seção Postagens ********** -->
+           <div id="secao-postagens"
+          style="display: none; flex-direction: column; gap: 15px; transform: translateX(15px); width: 90%;">
+          <div id="post-section"
+            style="overflow-y: auto; max-height: 500px; display: flex; flex-direction: column; gap: 2rem;">
+            <article class="post">
+            </article>
+          </div>
+        </div>
+
+           <!-- ********** Seção Sobre ********** -->
+        <div id="secao-sobre" style="display: none; flex-direction: column; gap: 15px; transform: translateX(20px);">
+          <article class="sobreContainer">
+            <div class="sobreCorpo">
+              <h3 id="txtrazao_social">Razão social:</h3>
+              <p id="txtdescricao">
+              </p>
+            </div>
+            <div class="sobreFooter">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <img src="../assets/png/icones/icone_calendario-fundacao-sobre.png" alt="" height="20px"
+                  width="20px" /><span id="txtAdF">Fundada em </span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px">
+                <img src="../assets/png/icones/icone_localizacao-sobre.png" alt="" height="20px" width="20px" /><span
+                  id="txtcidade">Localizada em </span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+    <!-- ********** Seção Mídia ********** -->
+    <div id="secao-midia" style="display: none; flex-direction: column; gap: 15px; transform: translateX(-14px); width: 92%;">
+                <article
+            class="container"
+            style="
+              border: 1px solid #cdcccc;
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: space-between;
+              padding-bottom: 12px;
+            "
+          >
+            <h4
+              style="
+                width: 100%;
+                padding-top: 10px;
+                padding-bottom: 15px;
+                border-bottom: 3px solid #dadada;
+              "
+            >
+              Mídia
+            </h4>
+
+            <section class="fotos-container">
+              <!-- AQUI VAI SER GERADO PELO CODIGO AS MINIATURAS-->
+            </section>
+            <div
+              style="
+                width: 95%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                height: 100%;
+                align-items: flex-end;
+              "
+            >
+            </div>
+          </article>
+    </div>
+
+        <!-- ********** Seção Coleção ********** -->
+
+      <div id="secao-colecao" style="display: none; flex-direction: column; gap: 15px; transform: translateX(-14px); width: 92%;">
+                <article class="post">
+                    <div class="autor-post">
+                        <div class="flex" style="flex-direction: column;">
+                            <div class="flex">
+                                <div class="autor-photo">
+                                    <img src="../assets/jpg/foto-perfil-exemplo.jpg" alt="" />
+                                </div>
+                                <a class="autor" href="../">Cartinha Mágica</a>
+                            </div>
+                            <span class="horario">Fev 26 às 19h19</span>
+                        </div>
+                        <div>
+                            <div class="options-container">
+                                <a class="options-post" onclick="toggleOptions(this)">...</a>
+                                <div class="dropdown-options">
+                                    <a class="btnSalvarPost" style="cursor: pointer;">Salvar post</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="corpo-post">
+                        <p>
+                            Esse projeto tem o intuito de levar alegria e esperança para crianças que muitas vezes não têm condições de ter um Natal tão especial. A cada ano, voluntários se unem para arrecadar doações e organizar essa festa inesquecível.
+                        </p>
+                    </div>
+                    <div class="reactions-post">
+                        <div style="width: 100%; gap: 5px; align-items: center;" class="flex">
+                            <img src="../assets/png/icones/icone_curtir.png" width="16px" height="16px" alt="">
+                            <span style=" color: #a6a6a6; font-weight: bold; font-size: 13px;">100</span>
+                        </div>
+                        
+                        <a class="reaction" >Curtir</a>
+                        <a class="reaction" >Compartilhar</a>
+                    </div>
+                </article>
+          </div>  
+
+        </div>
+      </section>
+    </div>
+
+<!-- ********** MODAIS ********** -->
+
+<!-- MODAL MIDIA ABERTA-->
+<div id="modalPost" style="display:none; position:fixed; top:50; left:50; width:80%; height: 80%; background:#fff; z-index:999;">
+  <div style="display: flex; width: 70%; height: 100%; flex-direction: column; justify-content: space-between; align-items: center;">
+    <div style="width: 100%; display: flex; align-items: center; padding: 0; height: 10px;">
+      <a href="" class="sair" style="font-weight: bold;">×</a>
+    </div>
+    <div id="midia-viewer" class="photo-post" style="display: flex; justify-content: center; align-items: center;">
+      <img id="midia-img" src="" style="max-width: 100%; max-height: 70vh; object-fit: contain;" />
+    </div>
+  </div>
+  <div style="width: 30%; border-left: 3px solid #f5f5f5; border-radius: 0 10px 10px 0; display: flex; flex-direction: column; justify-content: flex-start;">
+    <div style="border-bottom: 3px solid #f5f5f5; display: flex; align-items: center; padding: 1rem;">
+      <p class="autor" id="criadorMidia"></p>
+    </div>
+    <article class="postInfo">
+      <div style="display: flex; width: 100%; padding-left: 2.5rem; height: 20px; align-items: flex-start; justify-content: flex-start;">
+        <a class="info"></a>
+      </div>
+      <p class="txtPost" id="midia-descricao"></p>
+    </article>
+  </div>
+</div>
+
+
+    <!--********** Criar Post modal **********-->
+
+    <!--********** Salvar Publicação Modal **********-->
+    <div id="salvarPublicacao">
+      <div class="cabecalho-post" style="border-bottom: 2px solid #f5f5f5">
+        <div
+          style="
+            width: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <h3 style="font-size: 12pt; color: #2c2f2c">Salvar em:</h3>
+        </div>
+        <a href="../" class="sair" id="sairSalvarPublicacao">X</a>
+      </div>
+
+      <div class="corpo-post">
+        <div class="subcontainer">
+          <label for="vermaistarde1">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde1"
+            style="border-radius: 50%"
+          />
+        </div>
+        <div class="subcontainer">
+          <label for="vermaistarde2">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde2"
+            style="border-radius: 50%"
+          />
+        </div>
+        <div class="subcontainer">
+          <label for="vermaistarde3">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde3"
+            style="border-radius: 50%"
+          />
+        </div>
+        <div class="subcontainer">
+          <label for="vermaistarde4">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde4"
+            style="border-radius: 50%"
+          />
+        </div>
+        <div class="subcontainer">
+          <label for="vermaistarde5">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde5"
+            style="border-radius: 50%"
+          />
+        </div>
+        <div class="subcontainer">
+          <label for="vermaistarde6">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde6"
+            style="border-radius: 50%"
+          />
+        </div>
+      </div>
+      <br /><br />
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          padding: 1rem 0 0 0;
+        "
+      >
+        <a href="../" class="btn-confirmar">Concluir</a>
+      </div>
+    </div>
+
+    <!-- ********** Modal criar Colecao ********** -->
+        <div id="criarColecao">
+      <div class="modal-header">
+        <h1 class="modal-title">Criar nova coleção</h1>
+        <button class="close-modal" id="fecharCriarColecao">X</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="desc-criarcolecao">
+          <span>Crie uma nova coleção para organizar seus itens salvos.</span>
+        </div>
+
+        <div class="form-criarcolecao">
+          <form action="">
+            <label for="nomeColecao">Nome da coleção</label>
+            <input
+              type="text"
+              id="nomeColecao"
+              name="nomeColecao"
+              placeholder="Ex: Pets, Causa Infantil, etc"
+            />
+
+            <div class="botoes-criarcolecao">
+              <button id="btn-cancelar-criarcolecao" type="button">
+                Cancelar
+              </button>
+
+              <button id="btn-criar-criarcolecao" type="submit">
+                Criar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+        <!-- Adicionar Imagem em Mídia -->
+    <div id="adicionarImagemModal">
+      <header class="modal-header">
+        <h2 class="modal-title">Adicionar imagem</h2>
+        <button id="closeModal" class="btn-close">&times;</button>
+      </header>
+
+      <label for="txtlegenda">Adicione uma legenda a imagem</label>
+      <input type="text" id="txtlegenda" name="txtlegenda" placeholder="Legenda..."/> 
+      <section class="modal-body">
+        <label for="fileInput" class="drop-area">
+            <img src="" alt="">
+          <p>Escolha uma imagem</p>
+          <input id="fileInput" type="file" accept="image/*" />
+        </label>
+
+        <div class="preview" id="previewContainer"></div>
+      </section>
+
+      <footer class="modal-footer">
+        <button id="cancelBtn" class="btn-secondary">Cancelar</button>
+        <input type="submit" value="Adicionar" class="btn-add" />
+      </footer>
+    </div>
+
+    <div id="lightbox-modal" class="lightbox-hidden">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <img id="lightbox-img" src="" alt="Imagem em destaque" />
+    <button id="lightbox-prev" onclick="navigateLightbox(-1)">
+      <img src="../assets/png/arrowuneong.png" alt="Anterior" />
+    </button>
+    <button id="lightbox-next" onclick="navigateLightbox(1)">
+      <img src="../assets/png/arrowuneong.png" alt="Próxima" />
+    </button>
+  </div>
+
+ <script>
+
+let dataONG = null;
+let dataUser = null;
+
+window.onload = async () => {
+   try {
+        const res = await fetch("/api/configUser", {
+          method: "GET",
+          credentials: "include" // necessário para enviar o cookie da sessão
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          alert(data.error);
+          // redireciona
+          window.location.href = "../cadastros/login-doador.html";
+          return;
+        }      
+
+          document.getElementById("foto_perfil2").src = data.foto_perfil_usuario;
+
+
+        console.log(data)
+        document.querySelector(".name-account").innerHTML = data.Nome_user;
+        document.querySelector(".email-account").innerHTML = data.Email_user;
+
+      } catch (err) {
+        console.error("Erro ao carregar dados:", err);
+      }
+
+  try {
+    params = new URLSearchParams(window.location.search)
+    id = params.get("id")
+
+    const res = await fetch(`/api/perfilOng/${id}`, {
+      method: "GET",
+      credentials: "include"
+    });
+
+    dataONG = await res.json();
+    if (!res.ok) {
+      alert(dataONG.error);
+      window.location.href = "../cadastros/login-user.html";
+      return;
+    }
+
+    // IMAGENS
+    document.getElementById("fotoPerfil").src = dataONG.foto_perfil_ong;
+    document.getElementById("fotoHeader").src = dataONG.foto_header_ong;
+
+    // INFORMAÇÕES
+    document.getElementById("txtnomeOngPerfil").textContent = dataONG.nome_ong;
+    document.getElementById("txtseguidores").textContent = dataONG.seguidores;
+    document.getElementById("txtrazao_social").textContent = 'Razão Social: ' + dataONG.razao_social;
+    document.getElementById("txtdescricao").textContent = dataONG.descrição;
+    document.getElementById("txtAdF").textContent = 'Fundada em ' + dataONG.AdF;
+    document.getElementById("txtcidade").textContent = 'Localizada em ' + dataONG.cidade;
+
+    console.log(dataONG);
+  } catch (err) {
+    console.error("Erro ao carregar dados ONG:", err);
+  }
+
+  try {
+    const res = await fetch("/api/configUser", {
+      method: "GET",
+      credentials: "include"
+    });
+
+    dataUser = await res.json();
+    if (!res.ok) {
+      alert(dataUser.error);
+      return;
+    }
+
+    console.log(dataUser);
+  } catch (err) {
+    console.error("Erro ao carregar dados usuário:", err);
+  }
+
+  async function atualizarBotao(userId, ongId) {
+  const res = await fetch(`/api/seguir/check?seguidor_id=${userId}&ong_id=${ongId}`);
+  const data = await res.json();
+
+  const botao = document.getElementById("btnSeguir");
+  botao.innerText = data.label; 
+}
+
+atualizarBotao(dataUser.id_user , dataONG.id_ong)
+
+
+document.getElementById('btnSeguir').addEventListener("click", async () => {
+  try {
+    const res = await fetch("/api/seguir", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        seguidor_id: dataUser.id_user,
+        ong_id: dataONG.id_ong
+      })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.error || "Erro desconhecido");
+      return;
+    }
+
+    console.log(data.message);
+
+    if (data.reload) {
+      window.location.reload();
+    }
+
+  } catch (err) {
+    console.error("Erro ao seguir:", err);
+    alert("Erro inesperado ao seguir/desseguir.");
+  }
+});
+// script de midias - versão usuário (read-only)
+
+
+async function carregarMidiasUsuario(idOng) {
+  if (!idOng) return;
+  const res = await fetch(`/api/midias/${idOng}`, { credentials: "include" });
+  const midias = (await res.json()) || [];
+  const fotosContainer = document.querySelector("#secao-midia .fotos-container");
+  fotosContainer.innerHTML = "";
+
+  midias.forEach(midia => {
+    const urls = Array.isArray(midia.imagem_midia) ? midia.imagem_midia : [midia.imagem_midia];
+
+    urls.forEach(url => {
+      const article = document.createElement("article");
+      article.classList.add("foto");
+      article.style.cursor = "pointer";
+      article.style.width = "100px";
+      article.style.height = "100px";
+      article.style.margin = "5px";
+
+      if (url.match(/\.(mp4|webm|ogg)$/i)) {
+        const video = document.createElement("video");
+        video.src = url;
+        video.controls = true;
+        video.width = 100;
+        video.height = 100;
+        article.appendChild(video);
+      } else {
+        article.style.background = `url(${url})`;
+        article.style.backgroundSize = "cover";
+        article.style.backgroundPosition = "center";
+      }
+
+      article.addEventListener("click", () => abrirVisualizacaoMidia(url, midia.descricao_midia,  midia.ONG?.nome_ong));
+      fotosContainer.appendChild(article);
+    });
+  });
+}
+   
+
+// Modal para visualização
+function abrirVisualizacaoMidia(url, descricao, criador) {
+  const overlay = document.getElementById("overlay");
+  const modalPost = document.getElementById("modalPost");
+  const midiaImg = document.getElementById("midia-img");
+  const midiaDescricao = document.getElementById("midia-descricao");
+  const criadorMidia = document.getElementById("criadorMidia");
+
+  // Atualiza imagem e descrição
+  midiaImg.src = url;
+  midiaDescricao.textContent = descricao;
+  criadorMidia.textContent =  criador;
+
+  // Exibe modal e overlay
+  overlay.classList.add("show");
+  modalPost.style.display = "flex";
+
+  // Fechar ao clicar no overlay ou no botão X
+  overlay.onclick = fecharModal;
+  modalPost.querySelector(".sair").onclick = fecharModal;
+
+  function fecharModal(e) {
+    if (e) e.preventDefault();
+    overlay.classList.remove("show");
+    modalPost.style.display = "none";
+  }
+}
+
+
+
+// Chama a função para carregar as mídias do perfil da ONG
+const idOng = dataONG.id_ong
+console.log(idOng)
+carregarMidiasUsuario(idOng);
+
+
+};
+ async function carregarFeed() {
+      const res = await fetch("/api/perfilSeg", {
+        method: "GET",
+        credentials: "include"
+      });
+      const posts = await res.json();
+
+      const feedDiv = document.getElementById("post-section");
+      feedDiv.innerHTML = `<div id="post-section"style="display: none; flex-direction: column; gap: 15px; transform: translateX(15px);"`;
+
+      posts.forEach(post => {
+        const postDiv = document.createElement("article");
+        postDiv.classList.add("post");
+
+
+        const midias = Array.isArray(post.imagem_url)
+          ? post.imagem_url
+          : JSON.parse(post.imagem_url || "[]");
+
+        const midia = midias.map(url => {
+          return url.endsWith(".mp4")
+            ? `<video controls src="${url}" width="300"></video>`
+            : `<img src="${url}" width="300" />`;
+        }).join("");
+
+
+
+        postDiv.innerHTML = `
+       <div class="autor-post">
+        <div class="flex" style="flex-direction: column">
+          <div class="flex">
+            <div class="autor-photo">
+              <img src="${post.ONG.foto_perfil_ong}" alt="" />
+            </div>
+            <a class="autor" href="../">${post.ONG?.nome_ong || "ONG desconhecida"}</a>
+          </div>
+          <span class="horario">
+            ${new Date(post.data_hora).toLocaleString("pt-BR")}
+          </span>
+        </div>
+        <div>
+          <div class="options-container" data-id="${post.id_post}">
+            <a class="options-post">...</a>
+            <div class="dropdown-options">
+              <a class="btnSalvarPost" style="cursor: pointer">Salvar post</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="corpo-post">
+        <p>${post.conteudo_post}</p>
+        <div class="fotos-post">
+          ${midia}
+        </div>
+      </div>
+      <div class="reactions-post">
+        <div style="width: 100%; gap: 5px; align-items: center;" class="flex">
+          <img src="../assets/png/icones/icone_curtir.png" width="16px" height="16px" alt="">
+          <span style=" color: #a6a6a6; font-weight: bold; font-size: 13px;">0</span>
+        </div>
+        <a class="reaction">Curtir</a>
+        <a class="reaction">Compartilhar</a>
+      </div>
+    `;
+
+        feedDiv.appendChild(postDiv);
+
+      });
+    }
+
+    carregarFeed();
+
+    function configurarEventosPosts() {
+
+      // ==== salvar alterações ====
+
+      document.querySelectorAll(".options-post").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const container = btn.parentElement;
+          container.classList.toggle("active");
+          e.stopPropagation();
+        });
+      });
+
+
+      document.querySelectorAll(".btnSalvarPost").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          abrir(document.getElementById("salvarPublicacao"));
+        });
+      });
+
+    }
+        carregarFeed().then(() => configurarEventosPosts());
+
+
+      //scripts para esconder/aparecer as seções
+
+      const secaoSobre = document.getElementById("secao-sobre");
+      const secaoPostagens = document.getElementById("secao-postagens");
+      const secaoMidia = document.getElementById("secao-midia");
+      const secaoColecao = document.getElementById("secao-colecao");
+
+      const linkSobre = document.getElementById("link-sobre");
+      const linkPostagens = document.getElementById("link-postagens");
+      const linkMidia = document.getElementById("link-midia");
+      const linkMidiaText = document.getElementById("link-midia-text");
+      const linkColecao = document.querySelectorAll(".item-colecao");
+
+      secaoSobre.style.display = "flex";
+      linkSobre.style.color = "#e74c3c";
+
+      //evento de clicar no botao de postagens
+      linkPostagens.addEventListener("click", () => {
+        secaoPostagens.style.display = "flex";
+        secaoSobre.style.display = "none";
+        secaoMidia.style.display = "none";
+        secaoColecao.style.display = "none";
+
+        linkPostagens.style.color = "#e74c3c";
+        linkPostagens.style.fontWeight = "bold";
+        linkSobre.style.color = "";
+        linkMidiaText.style.color = "";
+        linkColecao.forEach(el => {
+          el.style.color = "";
+          el.style.fontWeight = "";
+    });
+      });
+
+      //evento de clicar no botao de sobre
+      linkSobre.addEventListener("click", () => {
+        secaoSobre.style.display = "flex";
+        secaoPostagens.style.display = "none";
+        secaoMidia.style.display = "none";
+        secaoColecao.style.display = "none";
+
+        linkSobre.style.color = "#e74c3c";
+        linkSobre.style.fontWeight = "bold";
+        linkPostagens.style.color = "";
+        linkMidiaText.style.color = "";
+        linkColecao.forEach(el => {
+          el.style.color = "";
+          el.style.fontWeight = "";
+    });
+      });
+
+      //evento de clicar no botao de midia
+      linkMidia.addEventListener("click", () => {
+        secaoMidia.style.display = "flex";
+        secaoPostagens.style.display = "none";
+        secaoSobre.style.display = "none";
+        secaoColecao.style.display = "none";
+
+        linkMidiaText.style.color = "#e74c3c";
+        linkMidiaText.style.fontWeight = "bold";
+        linkSobre.style.color = "";
+        linkPostagens.style.color = "";
+        linkColecao.forEach(el => {
+          el.style.color = "";
+          el.style.fontWeight = "";
+    });
+      });
+
+//evento de clicar no botao de colecao
+linkColecao.forEach(element => {
+  element.addEventListener("click", function () {
+    secaoColecao.style.display = "flex";
+    secaoPostagens.style.display = "none";
+    secaoSobre.style.display = "none";
+    secaoMidia.style.display = "none";
+
+    // Remove destaque de todos
+    linkColecao.forEach(el => {
+      el.style.color = "";
+      el.style.fontWeight = "";
+    });
+
+    // Destaca apenas o clicado
+    element.style.fontWeight = "bold";
+    element.style.color = "#e74c3c";    
+
+    linkMidiaText.style.color = "";
+    linkSobre.style.color = "";
+    linkPostagens.style.color = "";
+  });
+});
+
+
+
+    </script>
+
+    <script src="../js/funcionalidades.js"></script>
+    <script src="../js/modals/modalPost.js"></script>
+      <script src="../js/feed.js"></script>
+
+  </body>
+</html>
