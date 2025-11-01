@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/pages/perfil/perfil.css" />
+    <link rel="stylesheet" href="../css/partials/navbar.css" />
+    <link rel="stylesheet" href="../css/pages/feed/feed.css">
+      <link rel="stylesheet" href="../css/carregamento.css" />
+  </head>
+
+  <body>
+                  <div id="loading-screen">
+        <div class="loader-container">
+            <div class="logo-reveal"></div>
+            <div class="carregamentoTexto">
+                <h1>Carregando</h1>
+                <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+      <!--Navbar-->
+      <nav class="navbar">
+        <div
+          class="flex"
+          style="justify-content: flex-start; width: 100%; gap: 1.5rem"
+        >
+          <div style="line-height: 50px">
+            <button class="hamburger" id="hamburger"></button>
+          </div>
+          <ul class="nav-links" id="navlinks">
+            <li><a href="feed.html">Explorar</a></li>
+            <li><a href="ongsFiltro.html">ONGs</a></li>
+          </ul>
+          <a class="nav-title" href="../ong/feed.html"
+            ><img
+              src="../assets/svg/Logo UneONG FINAL.svg"
+              alt=""
+              width="80"
+              height="80"
+          /></a>
+        </div>
+
+        <input type="text" name="txtbuscar" id="txtbuscar" class="buscar" placeholder="Procure uma ong..." />
+        <label for="txtbuscar"><img src="../assets/png/icones/icone_buscar.png" class="buscarIcon" alt=""></label>
+
+        <div
+          class="nav-elements"
+          style="width: 100px; justify-content: flex-end; padding-left: 1rem"
+        >
+          <div class="icon-menu">
+            <img
+              src="../assets/png/user-example.png"
+              alt=""
+              id="dropdown-perfil"
+            />
+          </div>
+          <div class="dropdown" id="dropdownMenu">
+            <div class="flex" style="width: 100%">
+              <img
+                class="foto-perfil"
+                src="../assets/jpg/foto-perfil-exemplo.jpg"
+                alt=""
+              />
+              <div class="mn-part1">
+                <p class="name-account">Cartinha Mágica</p>
+                <p class="email-account">cartinhamagica@gmail.com</p>
+                <a class="perfil-account" href="perfil.html">Seu perfil ➞</a>
+              </div>
+            </div>
+            <div class="mn-part2">
+                      <ul>
+                            <li><a href="configuracoes.html"><img src="../assets/png/icones/icone_configuracoes.png" alt="" style="width: 25px; margin-right: 7px; vertical-align: middle;">Configurações</a></li>
+                      </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div id="overlay"></div>
+
+      <!--Topo do perfil (fixo)-->
+    <div class="header-perfil" style="padding-top: 50px">
+      <img class="header-image"
+        src="../assets/jpg/teste-header-perfil.jpeg"
+        id="fotoHeader"
+        alt=""
+      />
+    </div>
+    <div class="info-perfil">
+      <div class="perfil-containt">
+        <div class="div-1">
+          <div class="icon-profile">
+            <img src="../assets/jpg/foto-perfil-exemplo.jpg" id="fotoPerfil" />
+          </div>
+          <h4 class="name-profile">Cartinha Mágica</h4>
+        </div>
+        <div class="div-2">
+          <p><span>10</span> publicações</p>
+          <p></p>
+          <p><span id="txtseguidores"></span> seguidores</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-perfil">
+      <section class="feed-profile">
+        <div class="flex main-left" style="margin-top: -20px;">
+
+        <!--Coleções (fixo)-->
+        <!--menu coleções para mobile-->
+        <div class="flex main-right">
+              <div class="menu-perfil-mobile" id="abrir-secao-colecoes">
+          <a style="font-weight: 700;" id="txt-abrir-secao-colecoes">Coleções</a>
+            </div>
+        </div>
+        
+        <!--coleções desktop-->
+          <div class="itens-salvos" id="menu-colecoes">
+            <div class="title-itens" id="titulo-secao-colecoes" ><h4>Coleções</h4></div>
+
+            <div class="elementos-salvos" >
+              <div class="subcontainer-colecoes" id="subcontainer-colecoes">
+              </div>
+                            <div class="botao-nova-colecao">
+                <a class="nova-colecao" href="" id="abrirCriarColecao">Nova coleção</a>
+              </div>
+            </div>
+          </div>
+
+       <!--Mídia (fixo) (desktop)-->
+
+          <div class="container-midia" id="link-midia">
+            <h4>
+              <a id="link-midia-text">Mídia</a>
+            </h4>
+            <a class="ver-tudo"> &gt;</a>
+          </div>
+        </div>
+
+        <div class="flex main-right"> 
+
+          <div class="flex" style="align-items: center; justify-content: center; width: 100%">
+            
+          <!--Menu sobre e postagens (fixo) (desktop)-->
+            <div class="menu-perfil">
+              <article class="option-menu">
+                <a id="link-sobre">Sobre</a>
+              </article>
+              <article class="option-menu">
+                <a id="link-postagens">Postagens</a>
+              </article>
+            </div>
+
+          <!--Menu sobre e postagens (fixo) (mobile)-->
+            <div class="menu-perfil-mobile">
+              <article class="option-menu">
+                <a id="link-sobre-mobile">Sobre</a>
+              </article>
+              <article class="option-menu">
+                <a id="link-postagens-mobile">Postagens</a>
+              </article>
+              <article class="option-menu">
+                <a id="link-midia-mobile">Mídia</a>
+              </article>
+            </div>
+
+          </div>
+
+          <!-- ********** Seção Postagens ********** -->
+           <div id="secao-postagens" style="display: none; align-items: center; justify-content: center; width: 100%;">
+            <div class="create-post"> 
+            <img src="../assets/jpg/foto-perfil-exemplo.jpg" id="fotoPerfilPostagem" alt="" />
+            <input
+              type="text"
+              name="abrirModalCriarPost"
+              id="abrirModalCriarPost"
+              placeholder="Fazer publicação..."
+            />
+          </div>
+
+            <div id="post-section"
+            style="overflow-y: auto; max-height: 500px; display: flex; flex-direction: column; gap: 2rem; width: 90%;">
+            <article class="post">
+            </article>
+          </div>
+           </div>
+        
+           <!--********** Seção Sobre **********-->
+    <div class="flex" id="secao-sobre" style="align-items: center; justify-content: center; width: 100%">
+      <article class="sobreContainer">
+            <div class="sobreCorpo">
+              <h3 id="txtrazao_social"></h3>
+              <p id="txtdescricao"></p>
+            </div>
+            <div class="sobreFooter">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <img
+                  src="../assets/png/icones/icone_calendario-fundacao-sobre.png"
+                  alt=""
+                  height="20px"
+                  width="20px"
+                /><span id="txtAdF"></span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px">
+                <img
+                  src="../assets/png/icones/icone_localizacao-sobre.png"
+                  alt=""
+                  height="20px"
+                  width="20px"
+                /><span id="txtcidade"></span>
+              </div>
+            </div>
+          </article>
+    </div>
+    <!-- ********** Seção Mídia **********-->
+    <div class="flex" id="secao-midia" style="display: none; align-items: center; justify-content: center; width: 100%">
+      <article class="container secao-midia">
+        <h4 class="titulo-midia">Mídia</h4>
+
+        <section class="fotos-container">
+          <div class="foto" >
+            <img
+              id="abrirAdicionarImagem"
+              class="icone-adicionar"
+              src="../assets/png/icones/icone_adicionar+.png"
+              alt="Adicionar imagem"
+              width="100%"
+              height="100%"
+            />
+          </div>
+        </section>
+
+        <div class="acoes-midia"></div>
+      </article>
+    </div>
+
+        <!-- ********** Seção Coleção ********** -->
+
+      <div class="flex" id="secao-colecao" style="display: none; align-items: center; justify-content: center; width: 100%">
+
+        <!--Postagem salva numa coleção-->        
+        <!-- POSTS SÃO GERADOS AUTOMATICAMENTE -->
+
+          </div>  
+        </div>
+        </div>
+      </section>
+    </div>
+
+<!-- ********** MODAIS ********** -->
+
+    <!--********** Criar Post modal **********-->
+    <div id="criarPost">
+      <div class="cabecalho-post">
+        <div style="width: 95%; display: flex; justify-content: center; align-items: center;">
+          <h3>Criar Post</h3>
+        </div>
+        <a href="" class="sair" id="sairCriarPost">X</a>
+      </div>
+      <div class="corpo-post">
+        <div class="informacoes-pessoais">
+          <div
+            class="perfilIcon"
+            style="background-image: url(../assets/jpg/foto-perfil-exemplo.jpg)"
+          ></div>
+          <p>Cartinha Mágica</p>
+        </div>
+        <textarea style=" resize: none;"
+          name=""
+          id="textPost"
+          placeholder="No que você está pensando?"
+        ></textarea>
+        <input
+  type="file"
+  name="imagemPost"
+  id="imagemPost"
+  style="display: none"
+  accept="image/*,video/*"
+  multiple
+/>
+<label for="imagemPost" class="add-file-post">Adicionar ao Post</label>
+
+<div class="preview" style="min-width: 80%;" id="previewContainerPost"></div>
+
+      </div>
+      <div style="width: 100%; display: flex; justify-content: center">
+        <button class="btn-publicar" id='SalvarP' type="submit" onclick="enviarPost()">Publicar</button>
+      </div>
+    </div>
+
+    <!-- EDITAR POSTAGEM -->
+
+      <div id="editarPost">
+      <div class="cabecalho-post">
+        <div
+          style="
+            width: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <h3>Editar Postagem</h3>
+        </div>
+        <a href="" class="sair" id="sairEditarPost">X</a>
+      </div>
+      <div class="corpo-post">
+        <div class="informacoes-pessoais">
+          <div
+            class="perfilIcon"
+            id="foto_perfil4"
+          ></div>
+          <p id="editarNomeOng"></p>
+        </div>
+        <textarea style=" resize: none;"
+          name=""
+          id="textPost2"
+          placeholder="Texto da postagem"
+        ></textarea>
+        <input
+          type="file"
+          name="imagemPost2"
+          id="imagemPost2"
+          style="display: none"
+        />
+        <label for="imagemPost2" class="add-file-post">Adicionar Imagens</label>
+        <div class="preview" style="min-width: 80%;" id="previewContainerPost2"></div>
+      </div>
+      <div style="width: 100%; display: flex; justify-content: center">
+        <a class="btn-salvar" id="btnSalvarEdicao">Salvar</a>
+      </div>
+    </div>
+
+    <!-- EXCLUIR POSTAGEM -->
+
+    <div id="excluirPost">
+      <div class="modal-header">
+        <h1 class="modal-title">Excluir Publicação</h1>
+        <a href="" class="sair" style="color:#f4863e; font-weight: 700;">X</a>
+      </div>
+
+      <div class="modal-body">
+        <div class="desc-excluirmodal">
+          <span>Você tem certeza que deseja excluir publicação? </span>
+        </div>
+
+        <div class="opcoes-excluirmodal">
+          <button id="btn-cancelar-excluirmodal">Cancelar</button>
+
+          <button id="btnSairExcluirmodal">Excluir</button>
+        </div>
+      </div>
+    </div>
+
+     <!-- EXCLUIR COLEÇÃO -->
+
+    <div id="excluirColecao">
+      <div class="modal-header">
+        <h1 class="modal-title">Excluir Coleção</h1>
+        <a href="" class="sair" style="color:#f4863e; font-weight: 700;">X</a>
+      </div>
+
+      <div class="modal-body">
+        <div class="desc-excluirmodal">
+          <span>Você tem certeza que deseja excluir coleção? </span>
+        </div>
+
+        <div class="opcoes-excluirmodal">
+          <button id="cancelarExcluirColecao">Cancelar</button>
+
+          <button id="btn-sair-excluirmodal">Excluir</button>
+        </div>
+      </div>
+    </div>
+
+        <!-- REMOVER POSTAGEM DA COLEÇÃO -->
+
+    <div id="removerPostColecao">
+      <div class="modal-header">
+        <h1 class="modal-title">Remover publicação da coleção</h1>
+        <a href="" class="sair" style="color:#f4863e; font-weight: 700;">X</a>
+      </div>
+
+      <div class="modal-body">
+        <div class="desc-excluirmodal">
+          <span>Você tem certeza que deseja removar a publicação da coleção? </span>
+        </div>
+
+        <div class="opcoes-excluirmodal">
+          <button id="btn-cancelar-remover-post-modal">Cancelar</button>
+
+          <button id="btn-sair-excluirmodal">Remover</button>
+        </div>
+      </div>
+    </div>
+
+    <!--********** Salvar Publicação Modal **********-->
+     <div id="salvarPublicacao">
+      <div class="cabecalho-post" style="border-bottom: 2px solid #f5f5f5">
+        <div
+          style="
+            width: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <h3 style="font-size: 12pt; color: #2c2f2c">Salvar em:</h3>
+        </div>
+        <a href="../" class="sair" id="sairSalvarPublicacao">X</a>
+      </div>
+
+      <div class="corpo-post">
+        <!-- Vai gerar automaticamente as coleções -->
+      </div>
+      <br /><br />
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          padding: 1rem 0 0 0;
+        "
+      >
+        <a href="" class="btn-confirmar" id="btnConfirmarColecao">Concluir</a>
+      </div>
+    </div>
+
+    <!-- ********** Modal criar Colecao ********** -->
+    <div id="criarColecao">
+      <div class="modal-header">
+        <h1 class="modal-title">Criar nova coleção</h1>
+        <button class="close-modal" id="fecharCriarColecao">X</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="desc-criarcolecao">
+          <span>Crie uma nova coleção para organizar seus itens salvos.</span>
+        </div>
+
+        <div class="form-criarcolecao">
+          <form action="">
+            <label for="nomeColecao">Nome da coleção</label>
+            <input
+              type="text"
+              id="nomeColecao"
+              name="nomeColecao"
+              placeholder="Ex: Pets, Causa Infantil, etc"
+            />
+
+            <div class="botoes-criarcolecao">
+              <button id="btn-cancelar-criarcolecao" type="button">
+                Cancelar
+              </button>
+
+              <button id="btn-criar-criarcolecao" type="submit">
+                Criar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+        <!-- EXCLUIR MIDIA -->
+
+    <div id="excluirMidia">
+      <div class="modal-header">
+        <h1 class="modal-title">Excluir Mídia</h1>
+        <a href="" class="sair" style="color:#f4863e; font-weight: 700;">X</a>
+      </div>
+
+      <div class="modal-body">
+        <div class="desc-excluirmodal">
+          <span>Você tem certeza que deseja excluir esta mídia? </span>
+        </div>
+
+        <div class="opcoes-excluirmodal">
+          <button id="btn-cancelar-excluirmidia">Cancelar</button>
+
+          <button id="btn-sair-excluirmodal" class="btnExcluirMidia">Excluir</button>
+        </div>
+      </div>
+    </div>
+
+        <!-- Adicionar Imagem em Mídia -->
+    <div id="adicionarImagemModal">
+      <header class="modal-header">
+        <h2 class="modal-title">Adicionar imagem</h2>
+        <button id="closeModal" class="btn-close">&times;</button>
+      </header>
+      
+      <input type="text" id="txtlegenda" name="txtlegenda" placeholder="Legenda..."/> 
+      <section class="modal-body">
+        <label for="fileInput" class="drop-area">
+            <img src="" alt="">
+          <p>Escolha uma imagem</p>
+          <input id="fileInput" type="file" accept="image/*" />
+        </label>
+
+        <div class="preview" id="previewContainer"></div>
+      </section>
+
+      <footer class="modal-footer">
+        <button id="cancelBtn" class="btn-secondary">Cancelar</button>
+        <input type="submit" value="Adicionar" class="btn-add" id="btnEnviarMidia" />
+      </footer>
+    </div>
+
+
+    <!-- LIGHTBOX -->
+
+                <div id="lightbox-modal" class="lightbox-hidden">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <img id="lightbox-img" src="" alt="Imagem em destaque" />
+         <button id="lightbox-prev" onclick="navigateLightbox(-1)">
+    <img src="../assets/png/arrowuneong.png" alt="Anterior" />
+  </button>
+  <button id="lightbox-next" onclick="navigateLightbox(1)">
+    <img src="../assets/png/arrowuneong.png" alt="Próxima" />
+  </button>
+    </div>
+
+
+    
+ <script>
+let usuarioLogadoId = null;
+      window.onload = async () => {
+      try {
+        const res = await fetch("/api/config", {
+          method: "GET",
+          credentials: "include" // necessário para enviar o cookie da sessão
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          alert(data.error);
+          // redireciona
+          window.location.href = "../cadastros/login-doador.html";
+          return;
+        }
+
+        document.querySelector(".name-account").textContent = data.nome_ong;
+        document.querySelector(".foto-perfil").src = data.foto_perfil_ong;
+        document.getElementById("fotoPerfilPostagem").src = data.foto_perfil_ong
+        document.querySelector(".email-account").textContent = data.email_ong;
+
+        //IMAGENS
+        document.getElementById("fotoPerfil").src = data.foto_perfil_ong;
+        document.getElementById("fotoHeader").src = data.foto_header_ong;
+
+        //INFORMAÇÕES
+        document.getElementById("txtseguidores").textContent = data.seguidores;
+        document.querySelector(".name-profile").textContent = data.nome_ong;
+        document.getElementById("txtrazao_social").textContent = 'Razão Social: ' + data.razao_social;
+        document.getElementById("txtcidade").textContent = 'Localizada em ' + data.cidade;
+        document.getElementById("txtdescricao").textContent = data.descrição;
+        document.getElementById("txtAdF").textContent = 'Fundada em ' + data.AdF;
+        const foto = document.getElementById("foto_perfil4");
+        foto.style.backgroundImage  = `url(${data.foto_perfil_ong})`;
+        document.getElementById("editarNomeOng").textContent = data.nome_ong;
+
+  
+        console.log(data)
+        console.log("ID DA ONG -> " + data.id_ong)
+        carregarMidias(data.id_ong);
+        listarColecoes(data.id_ong);
+        carregarColecoesDaOng(data.id_ong);
+        usuarioLogadoId = data.id_ong;
+         console.log(usuarioLogadoId)
+         carregarFeed(usuarioLogadoId)
+
+      } catch (err) {
+        console.error("Erro ao carregar dados:", err);
+      }
+
+     
+
+
+    };
+
+
+
+    async function enviarPost() {
+      const textPost = document.getElementById("textPost").value;
+      const files = document.getElementById("imagemPost").files;
+
+      const formData = new FormData();
+
+
+      formData.append("textPost", textPost);
+
+      // até 4 arquivos
+      for (let i = 0; i < files.length && i < 4; i++) {
+        formData.append("imagemPost", files[i]);
+      }
+
+      const response = await fetch("/api/posts", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+      console.log(result);
+      if (response.ok) {
+        alert("Post criado com sucesso")
+        carregarFeed();
+        window.location.reload();
+      }
+      if (!response.ok) {
+        alert(result.error)
+      }
+
+    }
+
+    
+    async function verificarCurtida(postId, usuarioId) {
+  try {
+    const params = new URLSearchParams({
+      id_post: postId,
+      
+      id_ong: usuarioId
+    });
+
+    const res = await fetch(`/api/post/checkO?${params.toString()}`);
+    const result = await res.json();
+
+    const btn = document.querySelector(`.reaction[data-post-id="${postId}"]`);
+    if (btn) {
+      btn.textContent = result.jaCurtiu ? "Descurtir" : "Curtir";
+    }
+  } catch (err) {
+    console.error("Erro ao verificar curtida:", err);
+  }
+}
+async function carregarCurtidas(postId) {
+  try {
+    const res = await fetch(`/api/post/curtidasO/${postId}`);
+    const data = await res.json();
+
+    const contador = document.getElementById(`curtidas-${postId}`);
+    if (contador) {
+      contador.textContent = data.totalCurtidas || 0;
+    }
+    console.log(data);
+  } catch (err) {
+    console.error("Erro ao carregar curtidas:", err);
+  }
+}
+
+
+    document.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("reaction")) {
+    e.preventDefault(); // impede o <a> de recarregar a página
+
+    const postId = e.target.dataset.postId;
+    const usuarioId = e.target.dataset.usuarioId;
+
+    console.log("Usuário", usuarioId, "curtindo post", postId);    
+    try {
+      const res = await fetch("/api/post/curtidasO", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_ong: usuarioId, id_post: postId })
+      });
+      
+
+      const result = await res.json();
+
+      if (res.ok) {
+        carregarCurtidas(postId);
+        e.target.textContent = result.jaCurtiu ? "Descurtir" : "Curtir";
+    
+      }
+    } catch (err) {
+      console.error("Erro ao curtir:", err);
+    }
+  }
+});
+
+
+    async function carregarFeed(usuarioLogadoId,contador) {
+      const res = await fetch("/api/perfil", {
+        method: "GET",
+        credentials: "include"
+      });
+      const posts = await res.json();
+
+      const feedDiv = document.getElementById("post-section");
+      feedDiv.innerHTML = `<div id="post-section"style="display: none; flex-direction: column; gap: 15px; transform: translateX(15px);`;
+
+      posts.forEach(post => {
+        const postDiv = document.createElement("article");
+        postDiv.classList.add("post");
+
+
+        const midias = Array.isArray(post.imagem_url)
+          ? post.imagem_url
+          : JSON.parse(post.imagem_url || "[]");
+
+        const midia = midias.map(url => {
+          return url.endsWith(".mp4")
+            ? `<video controls src="${url}"></video>`
+            : `<img src="${url}" width="300" />`;
+        }).join("");
+
+
+
+        postDiv.innerHTML = ` <div class="autor-post">
+        <div class="flex" style="flex-direction: column">
+          <div class="flex">
+            <div class="autor-photo">
+              <img src="${post.ONG.foto_perfil_ong}" alt="" />
+            </div>
+            <a class="autor" href="../">${post.ONG?.nome_ong || "ONG desconhecida"}</a>
+          </div>
+          <span class="horario">
+            ${new Date(post.data_hora).toLocaleString("pt-BR")}
+          </span>
+        </div>
+        <div>
+          <div class="options-container" data-id="${post.id_post}">
+            <a class="options-post">...</a>
+            <div class="dropdown-options">
+              <a class="btnEditarPost" style="cursor: pointer">Editar post</a>
+              <a class="btnSalvarPost" style="cursor: pointer" data-id-post="${post.id_post}">Salvar post</a>
+              <a class="btnExcluirPost" style="cursor: pointer">Excluir post</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="corpo-post">
+        <p>${post.conteudo_post}</p>
+        <div class="fotos-post">
+          ${midia}
+        </div>
+      </div>
+      <div class="reactions-post">
+        <div style="width: 100%; gap: 5px; align-items: center;" class="flex">
+          <img src="../assets/png/icones/icone_curtir.png" width="16px" height="16px" alt="">
+          <span style=" color: #a6a6a6; font-weight: bold; font-size: 13px;" id="curtidas-${post.id_post}">${post.totalCurtidas || 0}</span>
+        </div>
+        <a class="reaction"
+        data-post-id="${post.id_post}" 
+       data-usuario-id="${usuarioLogadoId}"
+       id="CurTDesC" >${post.jaCurtiu ? "Descurtir" : "Curtir"}</a>
+        <a class="reaction">Compartilhar</a>
+      </div>
+    `;
+
+        feedDiv.appendChild(postDiv);
+        configurarEventosPosts();
+
+      });
+    }
+
+    carregarFeed();
+
+    function configurarEventosPosts() {
+
+      // ==== salvar alterações ====
+
+      document.querySelectorAll(".options-post").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const container = btn.parentElement;
+          container.classList.toggle("active");
+          e.stopPropagation();
+        });
+      });
+
+      let arquivosSelecionadosEditar = []; // novos uploads
+      let arquivosExistentesEditar = [];   // já salvos no banco
+      const LIMITE_MIDIAS = 4;
+
+      const previewContainerEditar = document.getElementById("previewContainerPost2");
+      const fileInputEditar = document.getElementById("imagemPost2");
+
+      // ==== renderiza preview ====
+      function mostrarPreviewEditar() {
+        previewContainerEditar.innerHTML = "";
+
+        // mídias existentes
+        arquivosExistentesEditar.forEach((url, index) => {
+          const wrapper = criarPreview(url, null, index, "existente");
+          previewContainerEditar.appendChild(wrapper);
+        });
+
+        // mídias novas
+        arquivosSelecionadosEditar.forEach((file, index) => {
+          const wrapper = criarPreview(URL.createObjectURL(file), file, index, "novo");
+          previewContainerEditar.appendChild(wrapper);
+        });
+      }
+
+      function criarPreview(src, file, index, tipo) {
+        const wrapper = document.createElement("div");
+        wrapper.style.cssText =
+          "position:relative;display:inline-block;margin:5px;width:100px;height:100px;border:1px solid #ddd;border-radius:10px;overflow:hidden;";
+
+        if (file && file.type.startsWith("video") || (src.endsWith(".mp4"))) {
+          const video = document.createElement("video");
+          video.src = src;
+          video.controls = true;
+          video.style.cssText = "width:100%;height:100%;object-fit:cover;";
+          wrapper.appendChild(video);
+        } else {
+          const img = document.createElement("img");
+          img.src = src;
+          img.style.cssText = "width:100%;height:100%;object-fit:cover;";
+          wrapper.appendChild(img);
+        }
+
+        // botão excluir
+        const btn = document.createElement("button");
+        btn.textContent = "✕";
+        btn.style.cssText =
+          "position:absolute;top:4px;right:4px;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;cursor:pointer;width:20px;height:20px;";
+        btn.addEventListener("click", () => {
+          if (tipo === "existente") {
+            arquivosExistentesEditar.splice(index, 1);
+          } else {
+            arquivosSelecionadosEditar.splice(index, 1);
+          }
+          mostrarPreviewEditar();
+        });
+
+        wrapper.appendChild(btn);
+        return wrapper;
+      }
+
+      // ==== input para novas mídias ====
+      if (fileInputEditar) {
+        fileInputEditar.addEventListener("change", (e) => {
+          let novosArquivos = Array.from(e.target.files);
+
+          // filtrar duplicados
+
+
+          const totalAtual = arquivosExistentesEditar.length + arquivosSelecionadosEditar.length;
+          const vagas = LIMITE_MIDIAS - totalAtual;
+
+          if (novosArquivos.length > vagas) {
+            alert(`Você não pode adicionar mais mídias.`);
+          }
+
+          // adiciona só o que couber
+          arquivosSelecionadosEditar = arquivosSelecionadosEditar.concat(novosArquivos.slice(0, vagas));
+
+          mostrarPreviewEditar();
+          fileInputEditar.value = ""; // limpa input para permitir novo upload
+        });
+      }
+      // ==== carregar post no modal ====
+      async function carregarPostNoModal(idPost) {
+        const res = await fetch(`/api/posts/${idPost}`);
+        const post = await res.json();
+
+        // texto
+        document.getElementById("textPost2").value = post.conteudo_post;
+
+        // mídias já salvas
+        arquivosExistentesEditar = Array.isArray(post.imagem_url) ? post.imagem_url : [];
+        arquivosSelecionadosEditar = [];
+
+        mostrarPreviewEditar();
+      }
+
+      async function editarPost(idPost) {
+        document.getElementById("btnSalvarEdicao").addEventListener("click", async () => {
+
+          const texto = document.getElementById("textPost2").value;
+
+          const formData = new FormData();
+          formData.append("conteudo_post", texto);
+          formData.append("imagensExistentes", JSON.stringify(arquivosExistentesEditar));
+
+          // novas imagens selecionadas
+          arquivosSelecionadosEditar.forEach((file) => {
+            formData.append("novasMidias", file);
+          });
+
+          await fetch(`/api/posts/update/${idPost}`, {
+            method: "PUT",
+            body: formData,
+            credentials: "include"
+          });
+          alert("Post atualizado!");
+          window.location.reload();
+          carregarFeed().then(() => configurarEventosPosts(), recarregarCSS());
+
+        });
+
+      }
+
+      async function deletarpost(idPost) {
+        document.getElementById("btnSairExcluirmodal").addEventListener("click", async () => {
+
+          const res = await fetch(`/api/posts/${idPost}`, {
+            method: "DELETE",
+          });
+
+          const data = await res.json();
+          if (res.ok) {
+            alert("Post excluído!");
+            carregarFeed();
+            window.location.reload();
+            carregarFeed().then(() => configurarEventosPosts(), recarregarCSS());
+          } else {
+            alert("Erro: " + data.error);
+          }
+
+        });
+
+      }
+
+      document.querySelectorAll(".btnSalvarPost").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          abrir(document.getElementById("salvarPublicacao"));
+        });
+      });
+
+
+      document.querySelectorAll(".btnExcluirPost").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const idPost = e.target.closest(".options-container").dataset.id;
+          console.log("Excluir post com ID:", idPost);
+
+          abrir(document.getElementById("excluirPost"));
+
+          // Armazena o id do post que vai ser excluído
+          deletarpost(idPost)
+          document.getElementById("btn-sair-excluirmodal").dataset.id = idPost;
+
+        });
+
+      });
+
+      document.querySelectorAll(".btnEditarPost").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const idPost = e.target.closest(".options-container").dataset.id;
+          console.log("Editar post com ID:", idPost);
+
+          // Abre modal de edição
+          abrir(document.getElementById("editarPost"));
+
+          // Preenche o modal com dados do post (chamando API ou pegando direto do DOM)
+          carregarPostNoModal(idPost);
+          editarPost(idPost);
+
+        });
+      });
+
+    }
+
+    // ==== salvar alterações ====
+
+
+
+    function recarregarCSS() {
+      const link2 = document.querySelector('link[href="../css/pages/perfil/perfil.css"]');
+      link2.href = link2.href + "?v=" + Date.now();
+
+      const link = document.querySelector('link[href="../css/partials/navbar.css"]');
+      link.href = link.href + "?v=" + Date.now();
+
+      const link1 = document.querySelector('link[href="../css/index.css"]');
+      link1.href = link1.href + "?v=" + Date.now();
+    }
+
+    
+    // adicionar mídia
+    const btnAdicionar = document.getElementById("btnEnviarMidia");
+    btnAdicionar.addEventListener("click", async () => {
+      const descricao = document.getElementById("txtlegenda").value;
+      const fileInput = document.getElementById("fileInput");
+      const file = fileInput.files[0];
+
+      if (!file) {
+        alert("Selecione um arquivo!");
+        return;
+      }
+
+      console.log("Arquivo recebido:", file);
+
+      const formData = new FormData();
+      formData.append("txtlegenda", descricao);
+      formData.append("fileInput", file, file.name);
+
+
+      const res = await fetch("/api/midias", {
+        method: "POST",
+        body: formData,
+        credentials: "include"
+      });
+
+      if (res.ok) {
+        alert("Mídia adicionada!");
+        carregarMidias();
+        window.location.reload();
+
+      } else {
+        const err = await res.json();
+        alert("Erro: " + err.error);
+      }
+
+
+    });
+
+async function excluirMidia(id_midia) {
+  if (!id_midia) {
+    console.error("ID da mídia não foi informado.");
+    return;
+  }
+
+  const confirmar = confirm("Tem certeza que deseja excluir esta mídia?");
+  if (!confirmar) return;
+
+  try {
+    const res = await fetch(`/api/midias/${id_midia}`, { method: "DELETE" });
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Mídia excluída com sucesso!");
+      carregarMidias();
+      window.location.reload();
+    } else {
+      alert("Erro: " + data.error);
+    }
+  } catch (err) {
+    console.error("Erro ao excluir mídia:", err);
+    alert("Erro inesperado ao tentar excluir a mídia.");
+  }
+}
+
+
+
+
+
+    // ver as miniaturas das midias
+    async function carregarMidias(idPerfil) {
+      if (!idPerfil) return; // evita undefined
+
+      const id = Number(idPerfil); // garante que seja número
+      if (isNaN(id)) {
+        console.error("ID inválido para carregar mídias:", idPerfil);
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/midias/${id}`, { credentials: "include" });
+        const midias = (await res.json()) || [];
+        if (!Array.isArray(midias)) {
+          console.error("Mídias não é array:", midias);
+          return;
+        }
+
+        const fotosContainer = document.querySelector("#secao-midia .fotos-container");
+        fotosContainer.querySelectorAll("article").forEach(a => a.remove());
+
+        midias.forEach(midia => {
+          const urls = Array.isArray(midia.imagem_midia) ? midia.imagem_midia : [midia.imagem_midia];
+
+          urls.forEach(url => {
+            const article = document.createElement("article");
+            article.classList.add("foto");
+            article.style.cursor = "pointer";
+            article.style.minWidth = "130px";
+            article.style.minHeight = "130px";
+            article.style.margin = "5px 0";
+
+            if (url.match(/\.(mp4|webm|ogg)$/i)) {
+              const video = document.createElement("video");
+              video.src = url;
+              video.controls = true;
+              video.width = 100;
+              video.height = 100;
+              article.appendChild(video);
+            } else {
+              article.style.background = `url(${url})`;
+              article.style.backgroundSize = "cover";
+              article.style.backgroundPosition = "center";
+              article.style.width = "100px";
+              article.style.height = "100px";
+            }
+
+            article.addEventListener("click", () => abrirVisualizacaoMidia(url, midia.descricao_midia, midia.ONG?.nome_ong, midia.data_midia, midia.ONG?.foto_perfil_ong, midia.id_midia));
+            fotosContainer.appendChild(article);
+          });
+        });
+
+      } catch (err) {
+        console.error("Erro ao carregar mídias:", err);
+      }
+    }
+
+
+    // ABRE MODAL DE VISUALIZAR MIDIA
+    function abrirVisualizacaoMidia(url, descricao, criador, data_midia, foto_perfil_ong, id_midia) {
+      // Overlay
+
+      let overlay = document.getElementById("overlay");
+      if (!overlay) {
+        overlay = document.createElement("div");
+        overlay.id = "overlay";
+        overlay.style.position = "fixed";
+        overlay.style.top = "0";
+        overlay.style.left = "0";
+        overlay.style.width = "100%";
+        overlay.style.height = "100%";
+        overlay.style.background = "rgba(0,0,0,0.7)";
+        overlay.style.display = "none";
+        overlay.style.zIndex = "999";
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener("click", () => {
+          modalPost.style.display = "none";
+          overlay.style.display = "none";
+        });
+      }
+
+      // Modal
+      let modalPost = document.getElementById("modalPost");
+      if (!modalPost) {
+        modalPost = document.createElement("div");
+        modalPost.id = "modalPost";
+        modalPost.style.display = "none";
+        modalPost.style.position = "fixed";
+        modalPost.style.top = "50%";
+        modalPost.style.left = "50%";
+        modalPost.style.transform = "translate(-50%, -50%)";
+        modalPost.style.zIndex = "1000";
+
+        //HTML DO MODAL
+        modalPost.innerHTML = 
+    `
+      <div class="container-foto-modal">
+        <div style="width: 100%; display: flex; align-items: center; padding: 0; height: 10px;">
+          <a href="" class="sair">×</a>
+        </div>
+
+
+<div style="
+  display: flex;
+  width: 100%;
+  height: 90%;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden; /* Impede o vazamento */
+">
+  <img 
+    class="photo-post" 
+    id="midia-img"
+    style="
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain; /* Mantém proporção e ajusta dentro do container */
+    "
+  >
+</div>
+
+      </div>
+
+      <div class="container-legenda-modal">
+        <div class="topo-legenda-modal">
+          <div class="autor-photo" style="line-height: 5px">
+            <img id="fotoCriador" src="" alt="" />
+          </div>
+          <div style="display: flex; flex-direction: column">
+            <a class="autor" id="criadorMidia">Cartinha Mágica</a>
+            <a class="info">Itu - SP</a>
+          </div>
+              <a class="btnExcluirMidia" id="btnExcluirMidia" style="cursor: pointer" onclick="excluirMidia(${id_midia})"><img width="20px" height="20px" src="../assets/png/icones/icone_excluir.png"/></a>
+
+        </div>
+
+        <article class="postInfo">
+          <div class="data-legenda-modal">
+            <a class="info">${new Date(data_midia).toLocaleString("pt-BR")}</a>
+          </div>
+          <div class="texto-legenda-modal">
+            <p class="txtPost" id="midia-descricao"></p>
+          </div>
+        </article>
+      </div>`;
+
+        document.body.appendChild(modalPost);
+
+        // Botão fechar
+        const closeBtn = modalPost.querySelector(".sair");
+        closeBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          modalPost.style.display = "none";
+          overlay.classList.remove("show");
+        });
+      }
+
+      // Atualiza imagem e descrição
+const midiaImg = modalPost.querySelector("#midia-img");
+const midiaDescricao = modalPost.querySelector("#midia-descricao");
+const criadorMidia = modalPost.querySelector("#criadorMidia");
+const fotoCriador = modalPost.querySelector("#fotoCriador");
+
+midiaImg.src = url;
+midiaDescricao.textContent = descricao;
+criadorMidia.textContent = criador;
+fotoCriador.src = foto_perfil_ong;
+
+      // Exibe modal e overlay
+      overlay.classList.toggle("show");
+      modalPost.style.display = "flex";
+
+      overlay.addEventListener("click", () => {
+        modalPost.style.display = "none";
+        overlay.classList.remove("show");
+      });
+
+    }
+
+  async function criarColecao() {
+  const nomeColecao = document.getElementById("nomeColecao").value.trim();
+
+  if (!nomeColecao) {
+    alert("Por favor, insira um nome para a coleção.");
+    return;
+  }
+
+  try {
+    const response = await fetch("/api/colecaoOng", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ nomeColecao }),
+    });
+
+    const result = await response.json();
+    console.log(result);
+
+    if (response.ok) {
+      alert("Coleção criada com sucesso!");
+      window.location.reload(); //recarrega a página
+    } else {
+      alert(result.error || "Erro ao criar coleção.");
+    }
+  } catch (error) {
+    console.error("Erro ao criar coleção:", error); // Log do erro real
+    res.status(500).json({ error: error.message });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+ 
+
+  const form = document.querySelector("#criarColecao form");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault(); // evita recarregar a página
+    await criarColecao();
+  });
+})
+
+async function listarColecoes(id_ong) {
+  try {
+    // Substitua pelo ID do usuário logado ou use sessão
+    const ongId = id_ong; // se necessário
+    const response = await fetch(`/api/colecoesOng/${ongId}`);
+    const colecoes = await response.json();
+
+    const container = document.getElementById("subcontainer-colecoes");
+    container.innerHTML = ""; // limpa o container antes de preencher
+
+    colecoes.forEach((colecao) => {
+      const primeiraLetra = colecao.nome_colecao_ong.charAt(0).toUpperCase();
+
+      const artigo = document.createElement("article");
+      artigo.classList.add("item-colecao");
+
+      artigo.innerHTML = `
+        <a class="icon-colecao">${primeiraLetra}</a>
+        <a onclick="carregarColecao(${colecao.id_colecao_ong})">${colecao.nome_colecao_ong}</a>
+        <div class="opcoes-colecao">
+          <a class="icone-acao-colecao btnExcluirColecao" href="#" title="Excluir coleção" onclick="excluirColecao(${colecao.id_colecao_ong})">
+            <img src="../assets/png/icones/icone_excluir.png" alt="Excluir coleção">
+          </a>
+        </div>
+      `;
+
+      container.appendChild(artigo);
+    });
+  } catch (error) {
+    console.error("Erro ao listar coleções:", error);
+  }
+}
+
+async function excluirColecao(id_colecao) {
+  try {
+    const response = await fetch(`/api/colecaoOng/${id_colecao}`, {
+      method: "DELETE",
+    });
+
+    const result = await response.json();
+    console.log(result);
+
+    if (response.ok) {
+      alert("Coleção excluída com sucesso!");
+      window.location.reload(); // recarrega ou substitua por função de atualização da interface
+    } else {
+      alert(result.error || "Erro ao excluir coleção.");
+    }
+  } catch (error) {
+    console.error("Erro ao excluir coleção:", error); // Log do erro
+    res.status(500).json({ error: error.message });
+  }
+}
+
+  async function carregarColecoesDaOng(id_criador) {
+
+  if (!id_criador) {
+    console.error("ID do criador não encontrado.");
+    return;
+  }
+
+  try {
+    const response = await fetch(`/api/colecoesOng/${id_criador}`, {
+  method: "GET",
+  credentials: "include"
+});
+    if (!response.ok) {
+      throw new Error("Erro ao buscar coleções");
+    }
+
+    const colecoes = await response.json();
+
+    const container = document.querySelector("#salvarPublicacao .corpo-post");
+    container.innerHTML = "";
+
+    if (!colecoes.length) {
+      container.innerHTML = "<p style='color: gray; text-align:center;'>Nenhuma coleção criada ainda.</p>";
+      return;
+    }
+
+    colecoes.forEach((colecao) => {
+      const div = document.createElement("div");
+      div.classList.add("subcontainer");
+
+      const label = document.createElement("label");
+      label.setAttribute("for", `colecao-${colecao.id_colecao_ong}`);
+      label.textContent = colecao.nome_colecao_ong;
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.id = `colecao-${colecao.id_colecao_ong}`;
+      checkbox.name = "colecoes";
+      checkbox.value = colecao.id_colecao_ong;
+      checkbox.style.borderRadius = "50%";
+
+      div.appendChild(label);
+      div.appendChild(checkbox);
+      container.appendChild(div);
+    });
+  } catch (error) {
+    console.error("Erro ao carregar coleções:", error);
+  }
+}
+
+async function salvarPostEmColecoes() {
+  if (!idPostSelecionado) {
+    alert("Erro: nenhuma postagem selecionada.");
+    return;
+  }
+
+  // Seleciona todos os checkboxes marcados
+  const selecionadas = Array.from(document.querySelectorAll('input[name="colecoes"]:checked'));
+  if (selecionadas.length === 0) {
+    alert("Selecione pelo menos uma coleção.");
+    return;
+  }
+
+  try {
+    for (const checkbox of selecionadas) {
+      const id_col = checkbox.value;
+
+      const response = await fetch(`/api/colecaoOng/item`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_col, id_post: idPostSelecionado }),
+        credentials: "include"
+      });
+
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Erro ao salvar");
+    }
+
+    alert("Postagem salva com sucesso nas coleções selecionadas!");
+    idPostSelecionado = null;
+
+    // Limpa checkboxes
+    document.querySelectorAll('input[name="colecoes"]').forEach(c => c.checked = false);
+
+    window.location.reload();
+
+  } catch (error) {
+    console.error("Erro ao salvar nas coleções:", error);
+    alert("Ocorreu um erro ao salvar a postagem.");
+  }
+}
+
+let idPostSelecionado = null;
+
+// 1️⃣ Event delegation para capturar clique em qualquer botão .btnSalvarPost
+document.addEventListener("click", (event) => {
+  const botao = event.target.closest(".btnSalvarPost");
+  if (!botao) return; // ignora se não for um botão de salvar post
+
+  event.preventDefault();
+
+  // Armazena o ID do post clicado
+  idPostSelecionado = botao.dataset.idPost;
+  console.log("Post selecionado:", idPostSelecionado);
+
+  // Aqui você pode chamar a função que abre o modal ou apenas preparar os dados
+  // abrirModal(); // se tiver modal
+});
+
+document.addEventListener("click", (event) => {
+  if (event.target.matches("#btnConfirmarColecao")) {
+    event.preventDefault();
+    salvarPostEmColecoes();
+  }
+});
+
+async function carregarColecao(idColecao) {
+  try {
+    const res = await fetch(`/api/colecaoOng/${idColecao}`, {
+      method: "GET",
+      credentials: "include"
+    });
+
+    if (!res.ok) throw new Error("Erro ao carregar posts da coleção");
+
+    const posts = await res.json();
+
+    const colecaoDiv = document.getElementById("secao-colecao");
+    colecaoDiv.innerHTML = "";
+    colecaoDiv.style.flexDirection = "column";
+    colecaoDiv.style.gap = "15px";
+
+    if (!posts.length) {
+      colecaoDiv.innerHTML = `<p style="text-align:center; color: gray;">Nenhuma postagem nesta coleção.</p>`;
+      return;
+    }
+
+    posts.forEach(post => {
+      const postDiv = document.createElement("article");
+      postDiv.classList.add("post");
+
+      const midias = Array.isArray(post.imagem_url)
+        ? post.imagem_url
+        : JSON.parse(post.imagem_url || "[]");
+
+      const midia = midias.map(url => {
+        return url.endsWith(".mp4")
+          ? `<video controls src="${url}" width="300"></video>`
+          : `<img src="${url}" width="300" />`;
+      }).join("");
+
+      postDiv.innerHTML = `
+        <div class="autor-post">
+          <div class="flex" style="flex-direction: column;">
+            <div class="flex">
+              <div class="autor-photo">
+                <img src="${post.ONG.foto_perfil_ong}" alt="" />
+              </div>
+              <a class="autor" href="../">${post.ONG?.nome_ong || "ONG desconhecida"}</a>
+            </div>
+            <span class="horario">${new Date(post.data_hora).toLocaleString("pt-BR")}</span>
+          </div>
+          <div>
+            <div class="options-container" data-id="${post.id_post}">
+              <a class="options-post" onclick="toggleOptions(this)">...</a>
+              <div class="dropdown-options">
+<a class="btnRemoverItem" 
+   onclick="removerItemColecaoFrontend(${post.id_citem_ong})" 
+   style="cursor: pointer">
+   Remover da coleção
+</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="corpo-post">
+          <p>${post.conteudo_post}</p>
+          <div class="fotos-post">${midia}</div>
+        </div>
+        <div class="reactions-post">
+          <div style="width: 100%; gap: 5px; align-items: center;" class="flex">
+          </div>
+          <a class="reaction" href="">Compartilhar</a>
+        </div>
+      `;
+
+      colecaoDiv.appendChild(postDiv);
+      console.log("🧠 id_cItem enviado:", post.id_citem_ong);
+      console.log(post)
+    });
+
+    configurarEventosPostsColecao();
+    iniciarFuncaoFeed();
+
+  } catch (error) {
+    console.error("Erro ao carregar posts da coleção:", error);
+  }
+}
+
+// Função para adicionar os eventos de opções e salvar post
+function configurarEventosPostsColecao() {
+  document.querySelectorAll(".options-post").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const container = btn.parentElement;
+      container.classList.toggle("active");
+      e.stopPropagation();
+    });
+  });
+
+  document.querySelectorAll(".btnSalvarPost").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      abrir(document.getElementById("salvarPublicacao"));
+    });
+  });
+}
+
+async function removerItemColecaoFrontend(id_cItem) {
+  if (!confirm("Deseja realmente remover este item da coleção?")) return;
+
+  try {
+    const response = await fetch(`/api/colecaoOng/item/${id_cItem}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => null);
+      const message = errorData?.error || "Erro ao remover item da coleção.";
+      throw new Error(message);
+    }
+
+    alert(" Item removido com sucesso!");
+    window.location.reload();
+
+  } catch (error) {
+    console.error("❌ Erro ao remover item da coleção:", error);
+    alert("❌ Falha ao remover item. Veja o console para detalhes.");
+  }
+}
+
+
+
+
+
+    // Chama a função para carregar as mídias
+    carregarMidias();
+
+    carregarFeed().then(() => configurarEventosPosts(), recarregarCSS());
+
+
+
+
+
+    </script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  setTimeout(() => {
+
+
+      //scripts para esconder/aparecer as seções
+
+      const secaoSobre = document.getElementById("secao-sobre");
+      const secaoPostagens = document.getElementById("secao-postagens");
+      const secaoMidia = document.getElementById("secao-midia");
+      const secaoColecao = document.getElementById("secao-colecao");
+
+      const linkSobre = document.getElementById("link-sobre");
+      const linkPostagens = document.getElementById("link-postagens");
+      const linkMidia = document.getElementById("link-midia");
+      const linkMidiaText = document.getElementById("link-midia-text");
+      const linkColecao = document.querySelectorAll(".item-colecao");
+
+      const linkSobreMobile = document.getElementById("link-sobre-mobile");
+      const linkPostagensMobile = document.getElementById("link-postagens-mobile");
+      const linkMidiaMobile = document.getElementById("link-midia-mobile");
+
+      secaoSobre.style.display = "flex";
+      linkSobre.style.color = "#e74c3c";
+      linkSobreMobile.style.color = "#e74c3c";
+
+      //evento de clicar no botao de postagens
+      linkPostagens.addEventListener("click", () => {
+        secaoPostagens.style.display = "flex";
+        secaoSobre.style.display = "none";
+        secaoMidia.style.display = "none";
+        secaoColecao.style.display = "none";
+
+        linkPostagens.style.color = "#e74c3c";
+        linkPostagens.style.fontWeight = "bold";
+        linkSobre.style.color = "";
+        linkMidiaText.style.color = "";
+        linkColecao.forEach(el => {
+          el.style.color = "";
+          el.style.fontWeight = "";
+    });
+      });
+
+      //evento de clicar no botao de sobre
+      linkSobre.addEventListener("click", () => {
+        secaoSobre.style.display = "flex";
+        secaoPostagens.style.display = "none";
+        secaoMidia.style.display = "none";
+        secaoColecao.style.display = "none";
+
+        linkSobre.style.color = "#e74c3c";
+        linkSobre.style.fontWeight = "bold";
+        linkPostagens.style.color = "";
+        linkMidiaText.style.color = "";
+        linkColecao.forEach(el => {
+          el.style.color = "";
+          el.style.fontWeight = "";
+    });
+      });
+
+      //evento de clicar no botao de midia
+      linkMidia.addEventListener("click", () => {
+        secaoMidia.style.display = "flex";
+        secaoPostagens.style.display = "none";
+        secaoSobre.style.display = "none";
+        secaoColecao.style.display = "none";
+
+        linkMidiaText.style.color = "#e74c3c";
+        linkMidiaText.style.fontWeight = "bold";
+        linkSobre.style.color = "";
+        linkPostagens.style.color = "";
+        linkColecao.forEach(el => {
+          el.style.color = "";
+          el.style.fontWeight = "";
+    });
+      });
+
+//evento de clicar no botao de colecao
+linkColecao.forEach(element => {
+  element.addEventListener("click", function () {
+    secaoColecao.style.display = "flex";
+    secaoPostagens.style.display = "none";
+    secaoSobre.style.display = "none";
+    secaoMidia.style.display = "none";
+
+    // Remove destaque de todos
+    linkColecao.forEach(el => {
+      el.style.color = "";
+      el.style.fontWeight = "";
+    });
+
+    // Destaca apenas o clicado
+    element.style.fontWeight = "bold";
+    element.style.color = "#e74c3c";    
+
+    linkMidiaText.style.color = "";
+    linkSobre.style.color = "";
+    linkPostagens.style.color = "";
+    linkMidiaMobile.style.color = "";
+    linkSobreMobile.style.color = "";
+    linkPostagensMobile.style.color = "";
+    
+  });
+});
+
+
+  //MENU PARA MOBILE
+
+     linkPostagensMobile.addEventListener("click", () => {
+        secaoPostagens.style.display = "flex";
+        secaoSobre.style.display = "none";
+        secaoMidia.style.display = "none";
+        secaoColecao.style.display = "none";
+
+        linkPostagensMobile.style.color = "#e74c3c";
+        linkPostagensMobile.style.fontWeight = "bold";
+        linkSobreMobile.style.color = "";
+        linkMidiaMobile.style.color = "";
+        linkColecao.forEach(el => {
+          el.style.color = "";
+          el.style.fontWeight = "";
+    });
+      });
+
+      linkSobreMobile.addEventListener("click", () => {
+        secaoSobre.style.display = "flex";
+        secaoPostagens.style.display = "none";
+        secaoMidia.style.display = "none";
+        secaoColecao.style.display = "none";
+
+        linkSobreMobile.style.color = "#e74c3c";
+        linkSobreMobile.style.fontWeight = "bold";
+        linkPostagensMobile.style.color = "";
+        linkMidiaMobile.style.color = "";
+        linkColecao.forEach(el => {
+          el.style.color = "";
+          el.style.fontWeight = "";
+    });
+      }); 
+
+      linkMidiaMobile.addEventListener("click", () => {
+        secaoMidia.style.display = "flex";
+        secaoPostagens.style.display = "none";
+        secaoSobre.style.display = "none";
+        secaoColecao.style.display = "none";
+
+        linkMidiaMobile.style.color = "#e74c3c";
+        linkMidiaMobile.style.fontWeight = "bold";
+        linkSobreMobile.style.color = "";
+        linkPostagensMobile.style.color = "";
+        linkColecao.forEach(el => {
+          el.style.color = "";
+          el.style.fontWeight = "";
+    });
+      }); 
+
+      //Versão mobile da seção coleções (aparecer/desaparecer)
+        const abrirSecaoColecoes = document.getElementById('abrir-secao-colecoes');
+        const secaoColecoes = document.getElementById('menu-colecoes');
+        const TxtAbrirSecaoColecoes = document.getElementById('txt-abrir-secao-colecoes');
+
+        abrirSecaoColecoes.addEventListener('click', (e) => {
+            e.preventDefault();
+            secaoColecoes.classList.toggle('show');
+
+            TxtAbrirSecaoColecoes.style.color = "#e74c3c";
+
+            if (secaoColecoes.classList.contains('show')) {
+        TxtAbrirSecaoColecoes.style.color = "#e74c3c"; // cor quando está aberto
+    } else {
+        TxtAbrirSecaoColecoes.style.color = ""; // volta à cor padrão quando fechado
+    }
+        });
+  }, 2500); 
+});
+
+
+async function iniciarFuncaoFeed(){
+  document.querySelectorAll('.fotos-post').forEach(galeria => {
+      const qtd = galeria.querySelectorAll('img').length;
+      galeria.classList.add(`fotos-post-${qtd}`);
+    });
+
+    let currentImageIndex = 0;
+    let imageList = [];
+
+    // Adiciona evento em todas as imagens
+    document.querySelectorAll('.fotos-post img').forEach(img => {
+      img.addEventListener('click', () => {
+        const parent = img.closest('.fotos-post');
+        imageList = Array.from(parent.querySelectorAll('img')).map(i => i.src);
+        currentImageIndex = imageList.indexOf(img.src);
+        openLightbox();
+      });
+    });
+
+    function openLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+
+      // Esconde as setas se houver apenas uma imagem
+      const showButtons = imageList.length > 1;
+      prevBtn.style.display = showButtons ? 'flex' : 'none';
+      nextBtn.style.display = showButtons ? 'flex' : 'none';
+
+      modal.classList.remove('lightbox-hidden');
+      img.src = imageList[currentImageIndex];
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox-modal').classList.add('lightbox-hidden');
+    }
+
+    function navigateLightbox(direction) {
+      currentImageIndex += direction;
+
+      if (currentImageIndex < 0) currentImageIndex = imageList.length - 1;
+      if (currentImageIndex >= imageList.length) currentImageIndex = 0;
+
+      document.getElementById('lightbox-img').src = imageList[currentImageIndex];
+    }
+
+    // === Adiciona os eventos SEM inline ===
+    const closeBtn = document.querySelector(".lightbox-close");
+    if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+
+    const prevBtn = document.getElementById("lightbox-prev");
+    if (prevBtn) prevBtn.addEventListener("click", () => navigateLightbox(-1));
+
+    const nextBtn = document.getElementById("lightbox-next");
+    if (nextBtn) nextBtn.addEventListener("click", () => navigateLightbox(1));
+}
+</script>
+
+
+    <script src="../js/funcionalidades.js"></script>
+    <script src="../js/feed.js"></script>
+    <script src="../js/modals/modalPost.js"></script>
+          <script src="../js/carregamento.js"></script>
+  </body>
+</html>
