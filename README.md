@@ -28,13 +28,13 @@ npx nodemon app.js
 
 Você vai acessar o projeto por uma conta que você mesmo pode criar, ou pode utilizar algum dos logins abaixo:
 
-para ONGs:
+### para ONGs:
 
-- email: Vidas Verdes - Associação Ambiental
-- cnpj: 12.345.678/0001-01
-- senha: vidasverdes
+- **email:** vidasverdes@gmail.com 
+- **cnpj:** 12.345.678/0001-01
+- **senha:** vidasverdes
 
-para User:
+### para Usuários comuns:
 
-- email: julia@gmail.com
-- senha: 123456
+- **email:** julia@gmail.com
+- **senha:** 123456
