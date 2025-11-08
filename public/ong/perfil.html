@@ -245,7 +245,7 @@
 
         <!-- ********** Seção Coleção ********** -->
 
-      <div class="flex" id="secao-colecao" style="display: none; align-items: center; justify-content: center; width: 100%">
+      <div class="flex" id="secao-colecao" style="display: none; align-items: flex-start; justify-content: flex-start ; width: 100%; overflow-y: auto; max-height: 500px; display: flex; flex-direction: column; gap: 2rem;">
 
         <!--Postagem salva numa coleção-->        
         <!-- POSTS SÃO GERADOS AUTOMATICAMENTE -->
@@ -270,9 +270,10 @@
         <div class="informacoes-pessoais">
           <div
             class="perfilIcon"
+            id="foto_perfil6"
             style="background-image: url(../assets/jpg/foto-perfil-exemplo.jpg)"
           ></div>
-          <p>Cartinha Mágica</p>
+          <p id="txtnomeOng3">Cartinha Mágica</p>
         </div>
         <textarea style=" resize: none;"
           name=""
@@ -553,10 +554,12 @@ let usuarioLogadoId = null;
         document.querySelector(".foto-perfil").src = data.foto_perfil_ong;
         document.getElementById("fotoPerfilPostagem").src = data.foto_perfil_ong
         document.querySelector(".email-account").textContent = data.email_ong;
+        document.getElementById("txtnomeOng3").textContent = data.nome_ong;
 
         //IMAGENS
         document.getElementById("fotoPerfil").src = data.foto_perfil_ong;
         document.getElementById("fotoHeader").src = data.foto_header_ong;
+        document.getElementById("foto_perfil6").src = data.foto_perfil_ong;
 
         //INFORMAÇÕES
         document.getElementById("txtseguidores").textContent = data.seguidores;
@@ -759,9 +762,11 @@ async function carregarCurtidas(postId) {
     `;
 
         feedDiv.appendChild(postDiv);
-        configurarEventosPosts();
+        
 
       });
+
+      configurarEventosPosts();
     }
 
     carregarFeed();

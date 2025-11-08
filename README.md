@@ -8,7 +8,12 @@ O **UneONG** é uma plataforma que possui o objetivo de facilitar a conexão ent
 
 Você precisa ter o node instalado, assim como o npm.
 
-**Baixar as seguintes dependências no terminal do projeto:**
+**Maneira rápida de instalar as dependências**
+
+- npm install
+
+
+**Caso der errado, baixar as seguintes dependências no terminal do projeto:**
 
 - npm install express sequelize mysql2 ejs ejs-layouts
 - npm install --save-dev nodemon
