@@ -8,12 +8,28 @@
     <link rel="stylesheet" href="../css/partials/navbar.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/pages/feed/feed.css">
+      <link rel="stylesheet" href="../css/partials/search.css">
+ 
+    <link rel="stylesheet" href="../css/carregamento.css" />
     <style>
         
     </style>
 </head>
 
 <body>
+                <div id="loading-screen">
+        <div class="loader-container">
+            <div class="logo-reveal"></div>
+            <div class="carregamentoTexto">
+                <h1>Carregando</h1>
+                <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header>
       <nav class="navbar">
@@ -36,10 +52,12 @@
               height="80"
           /></a>
         </div>
-
+<div style="display: flex; flex-direction: column; position: relative;">
         <input type="text" name="txtbuscar" id="txtbuscar" class="buscar" placeholder="Procure uma ong..." />
-        <label for="txtbuscar"><img src="../assets/png/icones/icone_buscar.png" class="buscarIcon" alt=""></label>
-
+        <div id="results" class="results"></div>
+      </div>
+      <label for="txtbuscar"><img src="../assets/png/icones/icone_buscar.png" class="buscarIcon" alt=""></label>
+      
         <div
           class="nav-elements"
           style="width: 100px; justify-content: flex-end; padding-left: 1rem"
@@ -95,93 +113,31 @@
                     <a href="">waydesignnow.com.br</a>
                 </div>
             </article>
+            <div class="container-termos">
+            <div>
+              <a href="" class="texto-termos">
+                © 2025 - UneONG </a>
+            </div>
+            <div>
+              <a href="../termos.html" class="texto-termos" style="text-decoration: underline" target="_blank">
+            Termos de uso e política de privacidade </a>
+            </div> 
+          </div>
         </div>
+
+         
 
         <div class="feed-section lg">
-
-
-                <article class="post">
-                    <div class="autor-post">
-                        <div class="flex" style="flex-direction: column;">
-                            <div class="flex">
-                                <div class="autor-photo">
-                                    <img src="../assets/jpg/foto-perfil-exemplo.jpg" alt="" />
-                                </div>
-                                <a class="autor" href="../">Cartinha Mágica</a>
-                            </div>
-                            <span class="horario">Fev 26 às 19h19</span>
-                        </div>
-                        <div>
-                            <div class="options-container">
-                                <a class="options-post" onclick="toggleOptions(this)">...</a>
-                                <div class="dropdown-options">
-                    <a class="btnEditarPost" style="cursor: pointer">Editar post</a>
-                    <a class="btnSalvarPost" style="cursor: pointer"
-                      >Salvar post</a
-                    >
-                    <a class="btnExcluirPost" style="cursor: pointer">Excluir post</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="corpo-post">
-                        <p>
-                            Esse projeto tem o intuito de levar alegria e esperança para crianças que muitas vezes não têm condições de ter um Natal tão especial. A cada ano, voluntários se unem para arrecadar doações e organizar essa festa inesquecível.
-                        </p>
-                    </div>
-                    <div class="reactions-post">
-                        <div style="width: 100%; gap: 5px; align-items: center;" class="flex">
-                            <img src="../assets/png/icones/icone_curtir.png" width="16px" height="16px" alt="">
-                            <span style=" color: #a6a6a6; font-weight: bold; font-size: 13px;">100</span>
-                        </div>
-                        
-                        <a class="reaction" >Curtir</a>
-                        <a class="reaction" >Compartilhar</a>
-                    </div>
-                </article>
-
-
-                <article class="post">
-                    <div class="autor-post">
-                        <div class="flex" style="flex-direction: column;">
-                            <div class="flex">
-                                <div class="autor-photo">
-                                    <img src="../assets/jpg/foto-perfil-exemplo.jpg" alt="" />
-                                </div>
-                                <a class="autor" href="../">Cartinha Mágica</a>
-                            </div>
-                            <span class="horario">Fev 26 às 19h19</span>
-                        </div>
-                        <div>
-                            <div class="options-container">
-                                <a class="options-post" onclick="toggleOptions(this)">...</a>
-                                <div class="dropdown-options">
-                    <a class="btnEditarPost" style="cursor: pointer">Editar post</a>
-                    <a class="btnSalvarPost" style="cursor: pointer"
-                      >Salvar post</a
-                    >
-                    <a class="btnExcluirPost" style="cursor: pointer">Excluir post</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="corpo-post">
-                        <p>
-                            Esse projeto tem o intuito de levar alegria e esperança para crianças que muitas vezes não têm condições de ter um Natal tão especial. A cada ano, voluntários se unem para arrecadar doações e organizar essa festa inesquecível.
-                        </p>
-                    </div>
-                    <div class="reactions-post">
-                        <div style="width: 100%; gap: 5px; align-items: center;" class="flex">
-                            <img src="../assets/png/icones/icone_curtir.png" width="16px" height="16px" alt="">
-                            <span style=" color: #a6a6a6; font-weight: bold; font-size: 13px;">100</span>
-                        </div>
-                        
-                        <a class="reaction" >Curtir</a>
-                        <a class="reaction" >Compartilhar</a>
-                    </div>
-                </article>
+                  <div id="secao-postagens">          
+            <div id="post-section"
+            style=" max-height: 500px; display: flex; flex-direction: column; gap: 2rem; width: 800px;">
+            <article class="post">
+            </article>
+            </div>
+          </div>
 
         </div>
+
         <div class="feed-section sm2">
             <div class="container" style="width: 230px;">
                 <h4>O que está acontecendo:</h4>
@@ -202,6 +158,15 @@
                 </article>
             </div>
 
+            <div class="create-post" style="width: 230px; border-color: none;">
+            <img id="foto_perfil5" src="../assets/jpg/foto-perfil-exemplo.jpg" alt="" />
+            <input
+              type="text"
+              name="abrirModalCriarPost"
+              id="abrirModalCriarPost"
+              placeholder="Fazer publicação..."
+            />
+          </div>
     </main>
 
     <!-- MODAL SALVAR PUBLICAÇÃO -->
@@ -246,29 +211,25 @@
         </div>
     </div>
 
-        <!-- EDITAR POSTAGEM -->
 
-      <div id="editarPost">
+     <!--MODAIS-->
+
+        <!--********** Criar Post modal **********-->
+    <div id="criarPost">
       <div class="cabecalho-post">
-        <div
-          style="
-            width: 95%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          "
-        >
-          <h3>Editar Postagem</h3>
+        <div style="width: 95%; display: flex; justify-content: center; align-items: center;">
+          <h3>Criar Post</h3>
         </div>
-        <a href="" class="sair" id="sairEditarPost">X</a>
+        <a href="" class="sair" id="sairCriarPost">X</a>
       </div>
       <div class="corpo-post">
         <div class="informacoes-pessoais">
           <div
+          id="foto_perfil4"
             class="perfilIcon"
             style="background-image: url(../assets/jpg/foto-perfil-exemplo.jpg)"
           ></div>
-          <p>Cartinha Mágica</p>
+          <p id="txtnomeOng2">Cartinha Mágica</p>
         </div>
         <textarea style=" resize: none;"
           name=""
@@ -276,42 +237,40 @@
           placeholder="No que você está pensando?"
         ></textarea>
         <input
-          type="file"
-          name="imagemPost"
-          id="imagemPost"
-          style="display: none"
-        />
-        <label for="imagemPost" class="add-file-post">Adicionar Imagens</label>
-        <div class="previewContainerPost"></div>
+  type="file"
+  name="imagemPost"
+  id="imagemPost"
+  style="display: none"
+  accept="image/*,video/*"
+  multiple
+/>
+<label for="imagemPost" class="add-file-post">Adicionar ao Post</label>
+
+<div class="preview" style="min-width: 80%;" id="previewContainerPost"></div>
+
       </div>
       <div style="width: 100%; display: flex; justify-content: center">
-        <a class="btn-salvar">Salvar</a>
+      <button class="btn-publicar" id='SalvarP' type="submit" onclick="enviarPost()">Publicar</button>
       </div>
     </div>
 
-    <!-- EXCLUIR POSTAGEM -->
 
-    <div id="excluirPost">
-      <div class="modal-header">
-        <h1 class="modal-title">Excluir Publicação</h1>
-        <button class="close-modal" id="fecharSaida">X</button>
-      </div>
-
-      <div class="modal-body">
-        <div class="desc-excluirmodal">
-          <span>Você tem certeza que deseja excluir publicação? </span>
-        </div>
-
-        <div class="opcoes-excluirmodal">
-          <button id="btn-cancelar-excluirmodal">Cancelar</button>
-
-          <button id="btn-sair-excluirmodal">Excluir</button>
-        </div>
-      </div>
-    </div>
+    <div id="lightbox-modal" class="lightbox-hidden">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <img id="lightbox-img" src="" alt="Imagem em destaque" />
+    <button id="lightbox-prev" onclick="navigateLightbox(-1)">
+      <img src="../assets/png/arrowuneong.png" alt="Anterior" />
+    </button>
+    <button id="lightbox-next" onclick="navigateLightbox(1)">
+      <img src="../assets/png/arrowuneong.png" alt="Próxima" />
+    </button>
+  </div>
 
     <script>
-       window.onload = async () => {
+          let dataONG = null;
+let dataUser = null;
+let usuarioLogadoId = null;
+       window.onload = async (usuarioLogadoId) => {
       try {
         const res = await fetch("/api/config", {
           method: "GET",
@@ -326,20 +285,226 @@
           return;
         }
 
-        
+        const foto = document.getElementById("foto_perfil4");
+        foto.style.backgroundImage  = `url(${data.foto_perfil_ong})`;
 
         
+        document.getElementById("foto_perfil5").src = data.foto_perfil_ong;
+        document.getElementById("txtnomeOng2").textContent = data.nome_ong;
+
+
         document.getElementById("txtnomeOng").textContent = data.nome_ong;
-                document.getElementById("foto_perfil").src = data.foto_perfil_ong;
+        document.getElementById("foto_perfil").src = data.foto_perfil_ong;
         document.getElementById("txtemailOng").textContent = data.email_ong;
-        
+         usuarioLogadoId = data.id_ong;
+         console.log(usuarioLogadoId)
+         carregarFeed(usuarioLogadoId)
         console.log(data);
       } catch (err) {
         console.error("Erro ao carregar dados:", err);
       }
+    
+
+
+
+
+  
+      
     };
+
+    async function enviarPost() {
+      const textPost = document.getElementById("textPost").value;
+      const files = document.getElementById("imagemPost").files;
+
+      const formData = new FormData();
+
+
+      formData.append("textPost", textPost);
+
+      // até 4 arquivos
+      for (let i = 0; i < files.length && i < 4; i++) {
+        formData.append("imagemPost", files[i]);
+      }
+
+      const response = await fetch("/api/posts", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+      console.log(result);
+      if (response.ok) {
+        alert("Post criado com sucesso")
+        carregarFeed();
+                window.location.reload();
+
+            }
+      if (!response.ok) {
+        alert(result.error)
+      }
+
+    }
+
+   
+async function carregarCurtidas(postId) {
+  try {
+    const res = await fetch(`/api/post/curtidasO/${postId}`);
+    const data = await res.json();
+
+    const contador = document.getElementById(`curtidas-${postId}`);
+    if (contador) {
+      contador.textContent = data.totalCurtidas || 0;
+    }
+    console.log(data);
+  } catch (err) {
+    console.error("Erro ao carregar curtidas:", err);
+  }
+}
+
+
+    document.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("reaction")) {
+    e.preventDefault(); // impede o <a> de recarregar a página
+
+    const postId = e.target.dataset.postId;
+    const usuarioId = e.target.dataset.usuarioId;
+
+    console.log("Usuário", usuarioId, "curtindo post", postId);    
+    try {
+      const res = await fetch("/api/post/curtidasO", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_ong: usuarioId, id_post: postId })
+      });
+      
+
+      const result = await res.json();
+
+      if (res.ok) {
+        carregarCurtidas(postId);
+        e.target.textContent = result.jaCurtiu ? "Descurtir" : "Curtir";
+    
+      }
+    } catch (err) {
+      console.error("Erro ao curtir:", err);
+    }
+  }
+});
+ async function carregarFeed(usuarioLogadoId,contador) {
+      const res = await fetch("/api/feedO", {
+        method: "GET",
+        credentials: "include"
+      });
+      const posts = await res.json();
+
+      const feedDiv = document.getElementById("post-section");
+      feedDiv.innerHTML = `<div id="post-section"style="display: none; flex-direction: column; gap: 15px; "`;
+      
+
+      posts.forEach(post => {
+        const postDiv = document.createElement("article");
+        postDiv.classList.add("post");
+
+
+        const midias = Array.isArray(post.imagem_url)
+          ? post.imagem_url
+          : JSON.parse(post.imagem_url || "[]");
+
+        const midia = midias.map(url => {
+          return url.endsWith(".mp4")
+            ? `<video controls src="${url}" width="300"></video>`
+            : `<img src="${url}" width="300" />`;
+        }).join("");
+
+        postDiv.innerHTML = `
+       <div class="autor-post">
+        <div class="flex" style="flex-direction: column">
+          <div class="flex">
+            <div class="autor-photo">
+              <img src="${post.ONG.foto_perfil_ong}" alt="" />
+            </div>
+            <a class="autor" href="../ong/perfil-ong.html?id=${post.ONG?.id_ong}">${post.ONG?.nome_ong || "ONG desconhecida"}</a>
+          </div>
+          <span class="horario">
+            ${new Date(post.data_hora).toLocaleString("pt-BR")}
+          </span>
+        </div>
+        <div>
+          <div class="options-container" data-id="${post.id_post}">
+          </div>
+        </div>
+      </div>
+
+      <div class="corpo-post">
+        <p>${post.conteudo_post}</p>
+        <div class="fotos-post">
+          ${midia}
+        </div>
+      </div>
+      <div class="reactions-post">
+        <div style="width: 100%; gap: 5px; align-items: center;" class="flex">
+          <img src="../assets/png/icones/icone_curtir.png" width="16px" height="16px" alt="">
+          <span style=" color: #a6a6a6; font-weight: bold; font-size: 13px;" id="curtidas-${post.id_post}">${post.totalCurtidas || 0}</span>
+        </div>
+        <a class="reaction"
+        data-post-id="${post.id_post}" 
+       data-usuario-id="${usuarioLogadoId}"
+       id="CurTDesC" >${post.jaCurtiu ? "Descurtir" : "Curtir"}</a>
+        <a class="reaction">Compartilhar</a>
+      </div>
+    `;
+
+        feedDiv.appendChild(postDiv);
+verificarCurtida(post.id_post, usuarioLogadoId);
+      });
+    }
+
+    carregarFeed();
+ async function verificarCurtida(postId, usuarioLogadoId) {
+  try {
+    const params = new URLSearchParams({
+      id_post: postId,
+      
+      id_ong: usuarioLogadoId
+    });
+
+    const res = await fetch(`/api/post/checkO?${params.toString()}`);
+    const result = await res.json();
+
+    const btn = document.querySelector(`.reaction[data-post-id="${postId}"]`);
+    if (btn) {
+      btn.textContent = result.jaCurtiu ? "Descurtir" : "Curtir";
+    }
+  } catch (err) {
+    console.error("Erro ao verificar curtida:", err);
+  }
+}
+    function configurarEventosPosts() {
+
+      // ==== salvar alterações ====
+      document.querySelectorAll(".btnSalvarPost").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          abrir(document.getElementById("salvarPublicacao"));
+        });
+      });
+
+ 
+
+    };
+
+
+    
+        carregarFeed().then(() => configurarEventosPosts());
+
+
+      //scripts para esconder/aparecer as seções
     </script>
-    <script src="../js/funcionalidades.js"></script>
+<script src="../js/funcionalidades.js"></script>
+  <script src="../js/feed.js"></script>
+        <script src="../js/carregamento.js"></script>
+              <script src="../js/search2.js"></script>
+
+
 </body>
 
 </html>

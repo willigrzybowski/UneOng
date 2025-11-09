@@ -58,7 +58,9 @@ export const listarPosts = async (id) => {
         id_ong,
         nome_ong,
         foto_perfil_ong
-      )
+      ),
+            Curtidas(count)
+
     `)
     .eq("id_ong", id)
     .order("data_hora", { ascending: false });

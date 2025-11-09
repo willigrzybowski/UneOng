@@ -1,477 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UneONG - Filtro de ONGs</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="../css/partials/navbar.css" />
-    <link rel="stylesheet" href="../css/index.css" />
-    <link rel="stylesheet" href="../css/pages/filtro/filtro.css" />
-    <link rel="stylesheet" href="../css/pages/filtro/modal-filtro.css" />
-  </head>
 
-  <body>
-    <header>
-      <nav class="navbar" style="width: 100%">
-        <div
-          class="flex"
-          style="justify-content: flex-start; width: 100%; gap: 1.5rem"
-        >
-          <div style="line-height: 50px">
-            <button class="hamburger" id="hamburger"></button>
-          </div>
-          <ul class="nav-links" id="navlinks">
-            <li><a href="feed.html">Explorar</a></li>
-            <li><a href="ongsFiltro.html">ONGs</a></li>
-          </ul>
-          <a class="nav-title" href="../user/feed.html"
-            ><img
-              src="../assets/svg/Logo UneONG FINAL.svg"
-              alt=""
-              width="80"
-              height="80"
-          /></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UneONG - Filtro de ONGs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../css/partials/navbar.css" />
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/pages/filtro/filtro.css" />
+  <link rel="stylesheet" href="../css/pages/filtro/modal-filtro.css" />
+  <link rel="stylesheet" href="../css/partials/search.css">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar" style="width: 100%">
+      <div class="flex" style="justify-content: flex-start; width: 100%; gap: 1.5rem">
+        <div style="line-height: 50px">
+          <button class="hamburger" id="hamburger"></button>
         </div>
+        <ul class="nav-links" id="navlinks">
+          <li><a href="feed.html">Explorar</a></li>
+          <li><a href="ongsFiltro.html">ONGs</a></li>
+        </ul>
+        <a class="nav-title" href="../user/feed.html"><img src="../assets/svg/Logo UneONG FINAL.svg" alt="" width="80"
+            height="80" /></a>
+      </div>
 
-        <input type="text" name="txtbuscar" id="txtbuscar" class="buscar" placeholder="Procure uma ong..." />
-        <label for="txtbuscar"><img src="../assets/png/icones/icone_buscar.png" class="buscarIcon" alt=""></label>
+      <input type="text" name="txtbuscar" id="txtbuscar" class="buscar" placeholder="Procure uma ong..." />
+      <label for="txtbuscar"><img src="../assets/png/icones/icone_buscar.png" class="buscarIcon" alt=""></label>
 
-        <div
-          class="nav-elements"
-          style="width: 100px; justify-content: flex-end; padding-left: 1rem"
-        >
-          <div class="icon-menu">
-            <img
-              src="../assets/png/user-example.png"
-              alt=""
-              id="dropdown-perfil"
-            />
-          </div>
-                <div class="dropdown" id="dropdownMenu">
-                    <div class="flex" style="width: 100%;">
-                        <img class="foto-perfil" id="foto_perfil2" src="../assets/jpg/foto-perfil-exemplo.jpg" alt="">
-                        <div class="mn-part1">
-                            <p class="name-account" id="txtnome2" >Juscelino Lima</p>
-                            <p class="email-account" id="txtemail2">juscelinolima@gmail.com</p>
-                            <a class="perfil-account" href="perfil.html">Seu perfil ➞</a>
-                        </div>
-                    </div>
-                    <div class="mn-part2">
-                        <ul>
-                            <li><a href="configuracoes.html"><img src="../assets/png/icones/icone_configuracoes.png" alt="" style="width: 25px; margin-right: 7px; vertical-align: middle;">Configurações</a></li>
-                        </ul>
-                    </div>
-                </div>
+      <div class="nav-elements" style="width: 100px; justify-content: flex-end; padding-left: 1rem">
+        <div class="icon-menu">
+          <img src="../assets/png/user-example.png" alt="" id="dropdown-perfil" />
         </div>
-      </nav>
-    </header>
+        <div class="dropdown" id="dropdownMenu">
+          <div class="flex" style="width: 100%;">
+            <img class="foto-perfil" id="foto_perfil2" src="../assets/jpg/foto-perfil-exemplo.jpg" alt="">
+            <div class="mn-part1">
+              <p class="name-account" id="txtnome2">Juscelino Lima</p>
+              <p class="email-account" id="txtemail2">juscelinolima@gmail.com</p>
+              <a class="perfil-account" href="perfil.html">Seu perfil ➞</a>
+            </div>
+          </div>
+          <div class="mn-part2">
+            <ul>
+              <li><a href="configuracoes.html"><img src="../assets/png/icones/icone_configuracoes.png" alt=""
+                    style="width: 25px; margin-right: 7px; vertical-align: middle;">Configurações</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    <div id="overlay"></div>
+  <div id="overlay"></div>
 
-<main>
-      <!-- Container do filtro -->
-      <div class="filtro-container">
-        <div class="filter-tabs">
-          <!-- Modal de A a Z -->
-          <button class="filter-btn" data-open="modal-az">A - Z</button>
-          <dialog id="modal-az">
-            <div class="modal-header">
-              <h1 class="modal-title">Selecionar filtro</h1>
-              <button class="close-modal-filtro" data-close="modal-az">
-                <i class="fa-solid fa-xmark"></i>
+  <main>
+    
+    <!-- Container do filtro -->
+    <div class="filtro-container">
+      <div class="filter-tabs">
+        <!-- Modal de A a Z -->
+        <button class="filter-btn" data-open="modal-az">A - Z</button>
+        <dialog id="modal-az">
+          <div class="modal-header">
+            <h1 class="modal-title">Selecionar filtro</h1>
+            <button class="close-modal-filtro" data-close="modal-az">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="buttons-filtro">
+              <button class="btn-crescente" id="btn_crescente" role="radio" aria-checked="true" tabindex="0">
+                De A a Z
               </button>
-            </div>
-
-            <div class="modal-body">
-              <div class="buttons-filtro">
-                <button
-                  class="btn-crescente"
-                  id="btn_crescente"
-                  role="radio"
-                  aria-checked="true"
-                  tabindex="0"
-                >
-                  De A a Z
-                </button>
-                <button
-                  class="btn-decrescente"
-                  id="btn_decrescente"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  De Z a A
-                </button>
-              </div>
-
-              <div class="atention">
-                <h4>Atenção:</h4>
-                <span
-                  >Essa ação limpará os campos preenchidos anteriormente.</span
-                >
-              </div>
-
-              <div class="modificar-filtro">
-                <button class="btn-cancelar" data-cancel="modal-az">
-                  Cancelar
-                </button>
-                <button class="btn-alterar" data-aplicar="az">Alterar</button>
-              </div>
-            </div>
-          </dialog>
-
-          <!-- Modal de Localização -->
-          <button class="filter-btn" data-open="modal-localizacao">
-            Localização
-          </button>
-          <dialog id="modal-localizacao">
-            <div class="modal-header">
-              <h1 class="modal-title">Selecionar filtro</h1>
-              <button class="close-modal-filtro" data-close="modal-localizacao">
-                <i class="fa-solid fa-xmark"></i>
+              <button class="btn-decrescente" id="btn_decrescente" role="radio" aria-checked="false" tabindex="-1">
+                De Z a A
               </button>
-            </div>
-
-            <div class="modal-body">
-              <div class="buttons-filtro">
-                <button
-                  class="btn-filtro"
-                  id="btn_itu"
-                  role="radio"
-                  aria-checked="true"
-                  tabindex="0"
-                  data-filtro="Itu"
-                >
-                  Itu
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_indaiatuba"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                  data-filtro="Indaiatuba"
-                >
-                  Indaiatuba
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_sorocaba"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                  data-filtro="Sorocaba"
-                >
-                  Sorocaba
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_salto"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                  data-filtro="Salto"
-                >
-                  Salto
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_jundiai"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                  data-filtro="Jundiai"
-                >
-                  Jundiaí
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_boituva"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                  data-filtro="Boituva"
-                >
-                  Boituva
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_portofeliz"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                  data-filtro="Porto Feliz"
-                >
-                  Porto Feliz
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_tiete"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                  data-filtro="Tiete"
-                >
-                  Tietê
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_cabreuva"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                  data-filtro="Cabreuva"
-                >
-                  Cabreúva
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_outracidade"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                  data-filtro="Outros"
-                >
-                  Outros
-                </button>
-              </div>
             </div>
 
             <div class="atention">
               <h4>Atenção:</h4>
-              <span
-                >Essa ação limpará os campos preenchidos anteriormente.</span
-              >
+              <span>Essa ação limpará os campos preenchidos anteriormente.</span>
             </div>
 
             <div class="modificar-filtro">
-              <button class="btn-cancelar" data-cancel="modal-localizacao">
+              <button class="btn-cancelar" data-cancel="modal-az">
                 Cancelar
               </button>
-              <button class="btn-alterar" data-aplicar="cidade">Alterar</button>
+              <button class="btn-alterar" data-aplicar="az">Alterar</button>
             </div>
-          </dialog>
+          </div>
+        </dialog>
 
-          <!-- Modal de categorias -->
-          <button class="filter-btn" data-open="modal-categoria">
-            Categoria
-          </button>
-          <dialog id="modal-categoria">
-            <div class="modal-header">
-              <h1 class="modal-title">Selecionar filtro</h1>
-              <button class="close-modal-filtro" data-close="modal-categoria">
-                <i class="fa-solid fa-xmark"></i>
+        <!-- Modal de Localização -->
+        <button class="filter-btn" data-open="modal-localizacao">
+          Localização
+        </button>
+        <dialog id="modal-localizacao">
+          <div class="modal-header">
+            <h1 class="modal-title">Selecionar filtro</h1>
+            <button class="close-modal-filtro" data-close="modal-localizacao">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="buttons-filtro">
+              <button class="btn-filtro" id="btn_itu" role="radio" aria-checked="true" tabindex="0" data-filtro="Itu">
+                Itu
+              </button>
+              <button class="btn-filtro" id="btn_indaiatuba" role="radio" aria-checked="false" tabindex="-1"
+                data-filtro="Indaiatuba">
+                Indaiatuba
+              </button>
+              <button class="btn-filtro" id="btn_sorocaba" role="radio" aria-checked="false" tabindex="-1"
+                data-filtro="Sorocaba">
+                Sorocaba
+              </button>
+              <button class="btn-filtro" id="btn_salto" role="radio" aria-checked="false" tabindex="-1"
+                data-filtro="Salto">
+                Salto
+              </button>
+              <button class="btn-filtro" id="btn_jundiai" role="radio" aria-checked="false" tabindex="-1"
+                data-filtro="Jundiaí">
+                Jundiaí
+              </button>
+              <button class="btn-filtro" id="btn_boituva" role="radio" aria-checked="false" tabindex="-1"
+                data-filtro="Boituva">
+                Boituva
+              </button>
+              <button class="btn-filtro" id="btn_portofeliz" role="radio" aria-checked="false" tabindex="-1"
+                data-filtro="Porto Feliz">
+                Porto Feliz
+              </button>
+              <button class="btn-filtro" id="btn_tiete" role="radio" aria-checked="false" tabindex="-1"
+                data-filtro="Tietê">
+                Tietê
+              </button>
+              <button class="btn-filtro" id="btn_cabreuva" role="radio" aria-checked="false" tabindex="-1"
+                data-filtro="Cabreúva">
+                Cabreúva
+              </button>
+              <button class="btn-filtro" id="btn_outracidade" role="radio" aria-checked="false" tabindex="-1"
+                data-filtro="Outros">
+                Outros
+              </button>
+            </div>
+          </div>
+
+          <div class="atention">
+            <h4>Atenção:</h4>
+            <span>Essa ação limpará os campos preenchidos anteriormente.</span>
+          </div>
+
+          <div class="modificar-filtro">
+            <button class="btn-cancelar" data-cancel="modal-localizacao">
+              Cancelar
+            </button>
+            <button class="btn-alterar" data-aplicar="cidade">Alterar</button>
+          </div>
+        </dialog>
+
+        <!-- Modal de categorias -->
+        <button class="filter-btn" data-open="modal-categoria">
+          Categoria
+        </button>
+        <dialog id="modal-categoria">
+          <div class="modal-header">
+            <h1 class="modal-title">Selecionar filtro</h1>
+            <button class="close-modal-filtro" data-close="modal-categoria">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="buttons-filtro" role="radiogroup" aria-label="Selecionar categoria">
+              <button class="btn-filtro" id="btn_Cultura" data-filtro="Cultura" role="radio" aria-checked="false"
+                tabindex="-1">
+                Cultura
+              </button>
+              <button class="btn-filtro" id="btn_Educacao" data-filtro="Educação" role="radio" aria-checked="false"
+                tabindex="-1">
+                Educação
+              </button>
+              <button class="btn-filtro" id="btn_MeioAmbiente" data-filtro="Meio ambiente" role="radio"
+                aria-checked="false" tabindex="-1">
+                Meio Ambiente
+              </button>
+              <button class="btn-filtro" id="btn_LGBT+" data-filtro="LGBT+" role="radio" aria-checked="false"
+                tabindex="-1">
+                LGBT+
+              </button>
+              <button class="btn-filtro" id="btn_Saude" data-filtro="Saúde" role="radio" aria-checked="false"
+                tabindex="-1">
+                Saúde
+              </button>
+              <button class="btn-filtro" id="btn_Animal" data-filtro="Animal" role="radio" aria-checked="false"
+                tabindex="-1">
+                Animal
+              </button>
+              <button class="btn-filtro" id="btn_BaixaRenda" data-filtro="Baixa Renda" role="radio" aria-checked="false"
+                tabindex="-1">
+                Baixa Renda
+              </button>
+              <button class="btn-filtro" id="btn_Indigenas" data-filtro="Indígenas" role="radio" aria-checked="false"
+                tabindex="-1">
+                Indígenas
+              </button>
+              <button class="btn-filtro" id="btn_PCD" data-filtro="PCD" role="radio" aria-checked="false" tabindex="-1">
+                PCD
+              </button>
+              <button class="btn-filtro" id="btn_Idosos" data-filtro="Idosos" role="radio" aria-checked="false"
+                tabindex="-1">
+                Idosos
+              </button>
+              <button class="btn-filtro" id="btn_DireitosHumanos" data-filtro="Direitos Humanos" role="radio"
+                aria-checked="false" tabindex="-1">
+                Direitos Humanos
+              </button>
+              <button class="btn-filtro" id="btn_EsporteLazer" data-filtro="Esporte e Lazer" role="radio"
+                aria-checked="false" tabindex="-1">
+                Esporte e Lazer
+              </button>
+              <button class="btn-filtro" id="btn_Outros" data-filtro="Outros" role="radio" aria-checked="false"
+                tabindex="-1">
+                Outros
               </button>
             </div>
 
-            <div class="modal-body">
-              <div
-                class="buttons-filtro"
-                role="radiogroup"
-                aria-label="Selecionar categoria"
-              >
-                <button
-                  class="btn-filtro"
-                  id="btn_Cultura"
-                  data-filtro="Cultura"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  Cultura
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_Educacao"
-                  data-filtro="Educação"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  Educação
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_MeioAmbiente"
-                  data-filtro="Meio Ambiente"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  Meio Ambiente
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_LGBT+"
-                  data-filtro="LGBT+"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  LGBT+
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_Saude"
-                  data-filtro="Saúde"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  Saúde
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_Animal"
-                  data-filtro="Animal"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  Animal
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_BaixaRenda"
-                  data-filtro="Baixa Renda"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  Baixa Renda
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_Indigenas"
-                  data-filtro="Indígenas"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  Indígenas
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_PCD"
-                  data-filtro="PCD"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  PCD
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_Idosos"
-                  data-filtro="Idosos"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  Idosos
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_DireitosHumanos"
-                  data-filtro="Direitos Humanos"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  Direitos Humanos
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_EsporteLazer"
-                  data-filtro="Esporte e Lazer"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  Esporte e Lazer
-                </button>
-                <button
-                  class="btn-filtro"
-                  id="btn_Outros"
-                  data-filtro="Outros"
-                  role="radio"
-                  aria-checked="false"
-                  tabindex="-1"
-                >
-                  Outros
-                </button>
-              </div>
-
-              <div class="atention">
-                <h4>Atenção:</h4>
-                <span
-                  >Essa ação limpará os campos preenchidos anteriormente.</span
-                >
-              </div>
-
-              <div class="modificar-filtro">
-                <button class="btn-cancelar" data-cancel="modal-categoria">
-                  Cancelar
-                </button>
-                <button class="btn-alterar" data-aplicar="categoria">
-                  Alterar
-                </button>
-              </div>
+            <div class="atention">
+              <h4>Atenção:</h4>
+              <span>Essa ação limpará os campos preenchidos anteriormente.</span>
             </div>
-          </dialog>
-        </div>
-        <!-- Lista de ONGs -->
-        <div class="ongs-container">
-          <div class="ongs-list">
-            <p>Amarati - Jundiaí</p>
-            <p>Associação Casa da Criança - Salto</p>
-            <p>Associação de Pais e Amigos (APAE) - Salto</p>
-            <p>Cartinha Mágica - Itu</p>
-            <p>Amarati - Jundiaí</p>
-            <p>Associação Casa da Criança - Salto</p>
-            <p>Associação de Pais e Amigos (APAE) - Salto</p>
-            <p>Cartinha Mágica - Itu</p>
+
+            <div class="modificar-filtro">
+              
+              <button class="btn-cancelar" data-cancel="modal-categoria">
+                Cancelar
+              </button>
+              <button class="btn-alterar" data-aplicar="categoria">
+                Alterar
+              </button>
+              
+            </div>
           </div>
-          <div class="ongs-list">
-            <p>Mais Vida - Centro de Apoio - Itu</p>
-            <p>Serviço de Obras Sociais (SOS) - Jundiaí</p>
-            <p>Rever Cidadania - Indaiatuba</p>
-            <p>Mais Vida - Centro de Apoio - Itu</p>
-            <p>Serviço de Obras Sociais (SOS) - Jundiaí</p>
-            <p>Rever Cidadania - Indaiatuba</p>
-          </div>
-        </div>
+        </dialog>
       </div>
-    </main>
-
-    <div id="modalsairconta" Open>
-      <div class="modal-header">
-        <h1 class="modal-title">Sair</h1>
-        <button class="close-modal" id="fecharSaida">X</button>
-      </div>
-
-      <div class="modal-body">
-        <div class="desc-sairconta">
-          <span>Você tem certeza que deseja sair da conta? </span>
+      <!-- Lista de ONGs -->
+      <div class="ongs-container">
+        <div class="ongs-list">
+          <p>Amarati - Jundiaí</p>
+          <p>Associação Casa da Criança - Salto</p>
+          <p>Associação de Pais e Amigos (APAE) - Salto</p>
+          <p>Cartinha Mágica - Itu</p>
+          <p>Amarati - Jundiaí</p>
+          <p>Associação Casa da Criança - Salto</p>
+          <p>Associação de Pais e Amigos (APAE) - Salto</p>
+          <p>Cartinha Mágica - Itu</p>
         </div>
-
-        <div class="opcoes-sairconta">
-          <button id="btn-cancelar-sairconta">Cancelar</button>
-
-          <button id="btn-sair-sairconta">Sair</button>
+        <div class="ongs-list">
+          <p>Mais Vida - Centro de Apoio - Itu</p>
+          <p>Serviço de Obras Sociais (SOS) - Jundiaí</p>
+          <p>Rever Cidadania - Indaiatuba</p>
+          <p>Mais Vida - Centro de Apoio - Itu</p>
+          <p>Serviço de Obras Sociais (SOS) - Jundiaí</p>
+          <p>Rever Cidadania - Indaiatuba</p>
         </div>
+        
       </div>
+      <div class="modificar-filtro">
+      <button id="btnLimparFiltros" class="btn btn-outline-secondary">
+  Limpar filtros
+</button>
+</div>
+    </div>
+  </main>
+
+  <div id="modalsairconta" Open>
+    <div class="modal-header">
+      <h1 class="modal-title">Sair</h1>
+      <button class="close-modal" id="fecharSaida">X</button>
     </div>
 
-    <script>
-      window.onload = async () => {
+    <div class="modal-body">
+      <div class="desc-sairconta">
+        <span>Você tem certeza que deseja sair da conta? </span>
+      </div>
+
+      <div class="opcoes-sairconta">
+        <button id="btn-cancelar-sairconta">Cancelar</button>
+
+        <button id="btn-sair-sairconta">Sair</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = async () => {
       try {
         const res = await fetch("/api/configUser", {
           method: "GET",
@@ -486,7 +318,7 @@
         }
 
 
-          document.getElementById("foto_perfil2").src = data.foto_perfil_usuario;
+        document.getElementById("foto_perfil2").src = data.foto_perfil_usuario;
 
         document.getElementById("txtnome2").textContent = data.Nome_user;
         document.getElementById("txtemail2").textContent = data.Email_user;
@@ -495,18 +327,186 @@
         console.error("Erro ao carregar dados:", err);
       }
     };
-      // Alterna botão ativo
-      const buttons = document.querySelectorAll(".filter-btn");
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          buttons.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-        });
+
+    // Alterna botão ativo
+    const buttons = document.querySelectorAll(".filter-btn");
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        buttons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
       });
-    </script>
+    });
 
 
-    <script src="../js/modals/modalsFiltro.js"></script>
-    <script src="../js/funcionalidades.js"></script>
-  </body>
+
+
+    async function carregarONGs(filtros = {}) {
+      const params = new URLSearchParams(filtros).toString();
+      const res = await fetch(`/api/ongs?${params}`);
+      const data = await res.json();
+
+      const container = document.querySelector(".ongs-container");
+      container.innerHTML = ""; // limpa lista anterior
+
+      if (data.length === 0) {
+        container.innerHTML = "<p>Nenhuma ONG encontrada.</p>";
+        return;
+      }
+
+      // Divide a lista em duas colunas
+      const metade = Math.ceil(data.length / 2);
+      const col1 = data.slice(0, metade);
+      const col2 = data.slice(metade);
+
+      const criarLista = (ongs) => {
+        const div = document.createElement("div");
+        div.classList.add("ongs-list");
+        ongs.forEach((ong) => {
+          const p = document.createElement("p");
+          p.textContent = `${ong.nome_ong} - ${ong.cidade} - ${ong.categoria_ong}`;
+          div.appendChild(p);
+        });
+        return div;
+      };
+
+      container.appendChild(criarLista(col1));
+      container.appendChild(criarLista(col2));
+    }
+
+    // Busca inicial (todas ONGs)
+    carregarONGs();
+
+
+    // 🏙️ Filtro por cidade
+    document.querySelectorAll("[data-aplicar='cidade']").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const ativo = document.querySelector("#modal-localizacao .btn-filtro[aria-checked='true']");
+        const cidade = ativo ? ativo.dataset.filtro : null;
+        carregarONGs({ cidade });
+      });
+    });
+
+    // 🏷️ Filtro por categoria
+    document.querySelectorAll("[data-aplicar='categoria']").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const ativo = document.querySelector("#modal-categoria .btn-filtro[aria-checked='true']");
+        const categoria = ativo ? ativo.dataset.filtro : null;
+        carregarONGs({ categoria });
+      });
+    });
+
+    // 🔠 Filtro A-Z e Z-A
+    document.querySelectorAll("[data-aplicar='az']").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const asc = document.getElementById("btn_crescente").getAttribute("aria-checked") === "true";
+        carregarONGs({ ordem: asc ? "asc" : "desc" });
+      });
+    });
+
+let filtrosAtuais = {}; // armazenará todos os filtros ativos
+
+async function carregarONGs(filtros = {}) {
+  const params = new URLSearchParams(filtros).toString();
+  const res = await fetch(`/api/ongs?${params}`);
+  const data = await res.json();
+
+  const container = document.querySelector(".ongs-container");
+  container.innerHTML = "";
+
+  if (data.length === 0) {
+    container.innerHTML = "<p>Nenhuma ONG encontrada.</p>";
+    return;
+  }
+
+  // Divide as ONGs em duas colunas
+  const metade = Math.ceil(data.length / 2);
+  const col1 = data.slice(0, metade);
+  const col2 = data.slice(metade);
+
+        const criarLista = (ongs) => {
+  const div = document.createElement("div");
+  div.classList.add("ongs-list");
+
+  ongs.forEach((ong) => {
+    const p = document.createElement("p");
+
+    // 🔗 Cria o link com o ID da ONG
+    const a = document.createElement("a");
+    a.textContent = `${ong.nome_ong} - ${ong.cidade} - ${ong.categoria_ong}`;
+    a.href = `../user/perfil-ong.html?id=${ong.id_ong}`; // <-- envia o id na URL
+    a.classList.add("link-ong");
+
+    p.appendChild(a);
+    div.appendChild(p);
+  });
+
+  return div;
+};
+
+  container.appendChild(criarLista(col1));
+  container.appendChild(criarLista(col2));
+}
+
+// 🔄 Atualiza um filtro específico
+function atualizarFiltro(chave, valor) {
+  if (valor) filtrosAtuais[chave] = valor;
+  else delete filtrosAtuais[chave];
+  carregarONGs(filtrosAtuais);
+}
+
+// Busca inicial
+carregarONGs();
+
+
+
+// 🏙️ Filtro por cidade
+document.querySelectorAll("[data-aplicar='cidade']").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const ativo = document.querySelector("#modal-localizacao .btn-filtro[aria-checked='true']");
+    const cidade = ativo ? ativo.dataset.filtro : null;
+    atualizarFiltro("cidade", cidade);
+  });
+});
+
+// 🏷️ Filtro por categoria
+document.querySelectorAll("[data-aplicar='categoria']").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const ativo = document.querySelector("#modal-categoria .btn-filtro[aria-checked='true']");
+    const categoria = ativo ? ativo.dataset.filtro : null;
+    atualizarFiltro("categoria", categoria);
+  });
+});
+
+// 🔠 Filtro A-Z e Z-A
+document.querySelectorAll("[data-aplicar='az']").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const asc = document.getElementById("btn_crescente").getAttribute("aria-checked") === "true";
+    atualizarFiltro("ordem", asc ? "asc" : "desc");
+  });
+});
+
+// 🧹 LIMPAR FILTROS
+document.getElementById("btnLimparFiltros").addEventListener("click", () => {
+  // limpa filtros
+  filtrosAtuais = {};
+  document.getElementById("txtbuscar").value = "";
+
+  // remove aria-checked de botões ativos nos modais
+  document.querySelectorAll(".btn-filtro[aria-checked='true']").forEach((btn) => {
+    btn.setAttribute("aria-checked", "false");
+  });
+
+  // recarrega todas as ONGs
+  carregarONGs();
+});
+</script>
+
+
+      <script src="../js/search.js"></script>
+
+  <script src="../js/modals/modalsFiltro.js"></script>
+  <script src="../js/funcionalidades.js"></script>
+        <script src="../js/carregamento.js"></script>
+</body>
+
 </html>

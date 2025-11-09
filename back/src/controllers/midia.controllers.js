@@ -1,4 +1,4 @@
-import { criarMidia, listarMidias, listarMidiasEspecifica } from "../services/midia.service.js";
+import { criarMidia, listarMidias, listarMidiasEspecifica, deletarMidia } from "../services/midia.service.js";
 
 export const criarMidiaController = async (req, res) => {
   console.log("Arquivo recebido:", req.file); // Para conferir se está chegando
@@ -35,6 +35,28 @@ export const listarMidiasEspecificaController = async (req, res) => {
     res.status(500).json({ error: "Erro interno ao listar mídias", detalhes: err.message });
   }
 };
+
+export const deletarMidiaController = async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const id_ong = parseInt(req.session.user); 
+
+    if (isNaN(id)) {
+      return res.status(400).json({ error: "ID inválido" });
+    }
+
+    await deletarMidia(id, id_ong);
+
+    return res.status(200).json({ message: "Mídia deletada com sucesso" });
+  } catch (err) {
+    console.error("Erro ao deletar mídia:", err);
+    return res.status(500).json({
+      error: "Erro interno ao deletar mídia",
+      detalhes: err.message,
+    });
+  }
+};
+
 
 
 

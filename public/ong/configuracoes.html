@@ -4,13 +4,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Início</title>
+  <title>Configurações</title>
   <link rel="stylesheet" href="../css/partials/navbar.css" />
   <link rel="stylesheet" href="../css/index.css" />
   <link rel="stylesheet" href="../css/pages/configuracoes/config-ong.css" />
+  <link rel="stylesheet" href="../css/partials/search.css" />
+  <link rel="stylesheet" href="../css/carregamento.css" />
 </head>
 
 <body>
+                <div id="loading-screen">
+        <div class="loader-container">
+            <div class="logo-reveal"></div>
+            <div class="carregamentoTexto">
+                <h1>Carregando</h1>
+                <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
   <header>
     <nav class="navbar">
       <div class="flex" style="justify-content: flex-start; width: 100%; gap: 1.5rem">
@@ -26,9 +41,12 @@
       </div>
 
 
-      <input type="text" name="txtbuscar" id="txtbuscar" class="buscar" placeholder="Procure uma ong..." />
+     <div style="display: flex; flex-direction: column; position: relative;">
+        <input type="text" name="txtbuscar" id="txtbuscar" class="buscar" placeholder="Procure uma ong..." />
+        <div id="results" class="results"></div>
+      </div>
       <label for="txtbuscar"><img src="../assets/png/icones/icone_buscar.png" class="buscarIcon" alt=""></label>
-
+      
       <div class="nav-elements" style="width: 100px; justify-content: flex-end; padding-left: 1rem">
         <div class="icon-menu">
           <img src="../assets/png/user-example.png" alt="" id="dropdown-perfil" />
@@ -117,19 +135,19 @@
             <div class="campo-editar-container">
               <h2>Categoria:</h2>
               <select id="categoria" name="categoria">
-                <option value="cultura">Cultura</option>
-                <option value="educacao">Educação</option>
-                <option value="meio-ambiente">Meio Ambiente</option>
-                <option value="lgbt">LGBT+</option>
-                <option value="saude">Saúde</option>
-                <option value="animal">Animal</option>
-                <option value="baixa-renda">Baixa Renda</option>
-                <option value="indigenas">Indígenas</option>
-                <option value="pcd">PCD</option>
-                <option value="idosos">Idosos</option>
-                <option value="direitos-humanos">Direitos Humanos</option>
-                <option value="esporte-lazer">Esporte e Lazer</option>
-                <option value="outros">Outros</option>
+                <option value="Cultura">Cultura</option>
+                <option value="Educação">Educação</option>
+                <option value="Meio ambiente">Meio Ambiente</option>
+                <option value="LGBT">LGBT+</option>
+                <option value="Saúde">Saúde</option>
+                <option value="Animal">Animal</option>
+                <option value="Baixa renda">Baixa Renda</option>
+                <option value="Indigenas">Indígenas</option>
+                <option value="PCD">PCD</option>
+                <option value="Idosos">Idosos</option>
+                <option value="Direitos humanos">Direitos Humanos</option>
+                <option value="Esporte lazer">Esporte e Lazer</option>
+                <option value="Outros">Outros</option>
               </select>
             </div>
           </div>
@@ -143,16 +161,16 @@
             <div class="campo-editar-container">
               <h2>Cidade:</h2>
               <select id="cidade" name="cidade">
-                <option value="itu">Itu</option>
-                <option value="indaiatuba">Indaiatuba</option>
-                <option value="sorocaba">Sorocaba</option>
-                <option value="salto">Salto</option>
-                <option value="jundiaí">Jundiaí</option>
-                <option value="boituva">Boituva</option>
-                <option value="porto-feliz">Porto Feliz</option>
-                <option value="tiete">Tietê</option>
-                <option value="cabreuva">Cabreúva</option>
-                <option value="outros">Outros</option>
+                <option value="Itu">Itu</option>
+                        <option value="Indaiatuba">Indaiatuba</option>
+                        <option value="Sorocaba">Sorocaba</option>
+                        <option value="Salto">Salto</option>
+                        <option value="Jundiaí">Jundiaí</option>
+                        <option value="Boituva">Boituva</option>
+                        <option value="Porto Feliz">Porto Feliz</option>
+                        <option value="Tietê">Tietê</option>
+                        <option value="Cabreúva">Cabreúva</option>
+                        <option value="Outros">Outros</option>
               </select>
             </div>
           </div>
@@ -204,7 +222,7 @@
           <div class="linha">
             <div class="campo-editar-container">
               <h2>CNPJ:</h2>
-              <input type="number" minlength="14" maxlength="14" name="txtcnpj" id="txtcnpj" />
+              <input type="text" minlength="18" maxlength="18" name="txtcnpj" id="txtcnpj" />
               <img src="../assets/png/icones/icone_editar.png" alt="Editar" />
             </div>
 
@@ -533,8 +551,11 @@
       linkPerfil.style.color = "";
     });
   </script>
+        <script src="../js/search2.js"></script>
+
   <script src="../js/funcionalidades.js"></script>
   <script src="../js/configuracao.js"></script>
+        <script src="../js/carregamento.js"></script>
 </body>
 
 </html>

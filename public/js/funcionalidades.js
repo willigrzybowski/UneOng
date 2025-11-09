@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==============================
   // FUNÇÕES ABRIR/FECHAR
   // ==============================
-  function abrir(el) {
+function abrir(el) {
     if (el && !el.classList.contains("show")) {
       el.classList.add("show");
       abertos++;
@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (overlay && abertos === 0) overlay.classList.remove("show");
   }
   window.fechar = fechar;
+
   // ==============================
   // FUNÇÃO PARA CONFIGURAR ABRIR E FECHAR
   // ==============================
@@ -166,16 +167,15 @@ function mostrarPreviewPost() {
 
     wrapper.appendChild(btn);
     previewContainerPost.appendChild(wrapper);
-    
   });
 }
-
 
 function limparPreviewPost() {
   previewContainerPost.innerHTML = "";
 }
+
 function removerArquivo(index) {
-  arquivosSelecionados.splice(index, 1);// remove do array
+  arquivosSelecionados.splice(index, 1); // remove do array
   atualizarInputFiles();
   mostrarPreviewPost();
 }
@@ -200,9 +200,6 @@ if (fileInputPost) {
     mostrarPreviewPost();
   });
 }
-
-
-
     //------------------------------------------------------------------
 
 
@@ -221,7 +218,7 @@ if (fileInputPost) {
 
     configFechamento(document.getElementById("sairSalvarPublicacao"), document.getElementById("salvarPublicacao"));
 
-        // MODAL EXCLUIR POST
+      // MODAL EXCLUIR POST
       document.querySelectorAll(".btnExcluirPost").forEach((btn) => {
         btn.addEventListener("click", (e) => {
           abrir(document.getElementById("excluirPost"));
@@ -236,6 +233,84 @@ if (fileInputPost) {
     });
     configFechamento(document.getElementById("btn-cancelar-sairconta"), document.getElementById("modalsairconta"));
     configFechamento(document.getElementById("fecharSaida"), document.getElementById("modalsairconta"));
+
+    // MODAL EXCLUIR COLEÇÃO
+    document.querySelectorAll(".btnExcluirColecao").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation(); // impede que o clique vá pro article
+        abrir(document.getElementById("excluirColecao"));
+      });
+    });
+
+    configFechamento(document.getElementById("cancelarExcluirColecao"), document.getElementById("excluirColecao"));
+    configFechamento(document.getElementById("fecharExcluirColecao"), document.getElementById("excluirColecao"));
+
+    // MODAL EXCLUIR MIDIA
+    document.querySelectorAll(".btnExcluirMidia").forEach((btn) => {
+      configAbertura(btn, document.getElementById("excluirMidia"));
+    });
+    configFechamento(document.getElementById("btn-cancelar-excluirmidia"), document.getElementById("excluirMidia"));
+    configFechamento(document.getElementById("fecharSaida"), document.getElementById("excluirMidia"));
+
+    // EDITAR COLEÇÃO (transforma o <a> em <input> para a edição do nome)
+  document.querySelectorAll(".btnEditarColecao").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const artigo = btn.closest(".item-colecao");
+
+    const textoColecao = artigo.querySelector("a:not(.icon-colecao):not(.icone-acao-colecao)");
+
+    if (!textoColecao) return;
+
+    if (artigo.querySelector("input.editar-nome")) return;
+
+    const valorAtual = textoColecao.textContent.trim();
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = valorAtual;
+    input.className = "editar-nome";
+    input.style.border = "1px solid #ccc";
+    input.style.padding = "2px 5px";
+    input.style.fontSize = "14px";
+
+    textoColecao.replaceWith(input);
+    input.focus();
+
+    const salvar = () => {
+      const novoTexto = input.value.trim() || valorAtual;
+      const novoLink = document.createElement("a");
+      novoLink.textContent = novoTexto;
+      input.replaceWith(novoLink);
+    };
+
+    input.addEventListener("blur", salvar);
+    input.addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter") {
+        ev.preventDefault();
+        salvar();
+      }
+    });
+  });
+});
+
+// MODAL REMOVER POST DA COLEÇÃO
+document.querySelectorAll(".btn-remover-post-colecao").forEach((btn) => {
+  configAbertura(btn, document.getElementById("removerPostColecao"));
+});
+
+configFechamento(
+  document.getElementById("btn-cancelar-remover-post-modal"),
+  document.getElementById("removerPostColecao")
+);
+
+configFechamento(
+  document.querySelector("#removerPostColecao .sair"),
+  document.getElementById("removerPostColecao")
+);
+
 
 
   // ==============================

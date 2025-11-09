@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Atraso de 1 segundo (1000ms) antes de rodar o código
   setTimeout(() => {
     document.querySelectorAll('.fotos-post').forEach(galeria => {
       const qtd = galeria.querySelectorAll('img').length;
@@ -25,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const prevBtn = document.getElementById('lightbox-prev');
       const nextBtn = document.getElementById('lightbox-next');
 
-      // Esconde as setas se houver apenas uma imagem
       const showButtons = imageList.length > 1;
       prevBtn.style.display = showButtons ? 'flex' : 'none';
       nextBtn.style.display = showButtons ? 'flex' : 'none';
@@ -47,14 +45,27 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById('lightbox-img').src = imageList[currentImageIndex];
     }
 
-    // === Adiciona os eventos SEM inline ===
+    // Botão fechar
     const closeBtn = document.querySelector(".lightbox-close");
     if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
 
+    // Navegação
     const prevBtn = document.getElementById("lightbox-prev");
     if (prevBtn) prevBtn.addEventListener("click", () => navigateLightbox(-1));
 
     const nextBtn = document.getElementById("lightbox-next");
     if (nextBtn) nextBtn.addEventListener("click", () => navigateLightbox(1));
-  }, 1000); // 1000 milissegundos = 1 segundo
+
+    // === Fecha ao clicar no fundo (parte escura) ===
+    const modal = document.getElementById("lightbox-modal");
+    if (modal) {
+      modal.addEventListener("click", (e) => {
+        // só fecha se clicar fora da imagem e dos botões
+        if (e.target === modal) {
+          closeLightbox();
+        }
+      });
+    }
+
+  }, 2000);
 });

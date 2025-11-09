@@ -6,11 +6,11 @@ const { Nome_user,Senha_user,Email_user } = req.body;
 const {data: usuarioExistente, error: usuarioCriar } = await buscarUsuario(Nome_user,Email_user);
 
 if(usuarioExistente){
-      return res.status(409).json({ message: 'Usuario' }); 
+      return res.status(409).json({ error: 'Usuario' }); 
 }
  
 if (!Nome_user || !Senha_user || !Email_user ) {
-    return res.status(400).json({ message: 'Nome, email e senha são obrigatórios.'});
+    return res.status(400).json({ error: 'Nome, email e senha são obrigatórios.'});
 }
  
 

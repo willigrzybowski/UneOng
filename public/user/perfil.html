@@ -1,301 +1,469 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/pages/perfil/perfil.css" />
+    <link rel="stylesheet" href="../css/partials/navbar.css" />
+    <link rel="stylesheet" href="../css/pages/feed/feed.css">
+    <link rel="stylesheet" href="../css/partials/search.css">
+      <link rel="stylesheet" href="../css/carregamento.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perfil</title>
-  <link rel="stylesheet" href="../css/index.css" />
-  <link rel="stylesheet" href="../css/pages/perfil/perfil.css" />
-  <link rel="stylesheet" href="../css/partials/navbar.css" />
-</head>
-
-<body>
-  <header>
-    <nav class="navbar">
-      <div class="flex" style="justify-content: flex-start; width: 100%; gap: 1.5rem">
-        <div style="line-height: 50px">
-          <button class="hamburger" id="hamburger"></button>
+  <body>
+                  <div id="loading-screen">
+        <div class="loader-container">
+            <div class="logo-reveal"></div>
+            <div class="carregamentoTexto">
+                <h1>Carregando</h1>
+                <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
-        <ul class="nav-links" id="navlinks">
-          <li><a href="feed.html">Explorar</a></li>
-          <li><a href="ongsFiltro.html">ONGs</a></li>
-        </ul>
-        <a class="nav-title" href="../user/feed.html"><img src="../assets/svg/Logo UneONG FINAL.svg" alt="" width="80"
-            height="80" /></a>
+    </div>
+    <header>
+      <nav class="navbar">
+        <div
+          class="flex"
+          style="justify-content: flex-start; width: 100%; gap: 1.5rem">
+          <div style="line-height: 50px">
+            <button class="hamburger" id="hamburger"></button>
+          </div>
+          <ul class="nav-links" id="navlinks">
+            <li><a href="feed.html">Explorar</a></li>
+            <li><a href="ongsFiltro.html">ONGs</a></li>
+          </ul>
+          <a class="nav-title" href="../user/feed.html"
+            ><img
+              src="../assets/svg/Logo UneONG FINAL.svg"
+              alt=""
+              width="80"
+              height="80"
+          /></a>
+        </div>
+        <div style="display: flex; flex-direction: column; position: relative;">
+        <input type="text" name="txtbuscar" id="txtbuscar" class="buscar" placeholder="Procure uma ong..." />
+        <div id="results" class="results" ></div>
       </div>
+        <label for="txtbuscar"><img src="../assets/png/icones/icone_buscar.png" class="buscarIcon" alt=""></label>
+        <div
+          class="nav-elements"
+          style="width: 100px; justify-content: flex-end; padding-left: 1rem"
+        >
 
-      <input type="text" name="txtbuscar" id="txtbuscar" class="buscar" placeholder="Procure uma ong..." />
-      <label for="txtbuscar"><img src="../assets/png/icones/icone_buscar.png" class="buscarIcon" alt=""></label>
-
-      <div class="nav-elements" style="width: 100px; justify-content: flex-end; padding-left: 1rem">
-        <div class="icon-menu">
-          <img src="../assets/png/user-example.png" alt="" id="dropdown-perfil" />
-        </div>
-        <div class="dropdown" id="dropdownMenu">
-          <div class="flex" style="width: 100%">
-            <img class="foto-perfil" src="../assets/jpg/foto-perfil-exemplo.jpg" id="fotoPerfil2" alt="" />
-            <div class="mn-part1">
-              <p class="name-account"></p>
-              <p class="email-account"></p>
-              <a class="perfil-account" href="perfil.html">Seu perfil ➞</a>
+        <div
+          class="nav-elements"
+          style="width: 100px; justify-content: flex-end; padding-left: 1rem"
+        >
+          <div class="icon-menu">
+            <img
+              src="../assets/png/user-example.png"
+              alt=""
+              id="dropdown-perfil"
+            />
+          </div>
+          <div class="dropdown" id="dropdownMenu">
+            <div class="flex" style="width: 100%">
+              <img
+                class="foto-perfil"
+                src="../assets/jpg/foto-perfil-exemplo.jpg"
+                alt=""
+              />
+              <div class="mn-part1">
+                <p class="name-account">Juscelino Lima</p>
+                <p class="email-account">juscelinolima@gmail.com</p>
+                <a class="perfil-account" href="perfil.html">Seu perfil ➞</a>
+              </div>
+            </div>
+            <div class="mn-part2">
+                        <ul>
+                            <li><a href="configuracoes.html"><img src="../assets/png/icones/icone_configuracoes.png" alt="" style="width: 25px; margin-right: 7px; vertical-align: middle;">Configurações</a></li>
+                        </ul>
             </div>
           </div>
-          <div class="mn-part2">
-            <ul>
-              <li><a href="configuracoes.html"><img src="../assets/png/icones/icone_configuracoes.png" alt=""
-                    style="width: 25px; margin-right: 7px; vertical-align: middle;">Configurações</a></li>
-            </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id="overlay"></div>
+
+    <!--Topo perfil-->
+    <div class="header-perfil" style="padding-top: 50px">
+      <img
+        class="header-image"
+        src="../assets/jpg/teste-header-perfil.jpeg"
+        alt=""
+      />
+    </div>
+    <div class="info-perfil">
+      <div class="perfil-containt">
+        <div class="div-1">
+          <div class="icon-profile">
+            <img src="../assets/jpg/foto-perfil-exemplo.jpg" id="fotoPerfil" />
           </div>
+          <h4 class="name-profile" style="color: #352c28">Juscelino Lima</h4>
         </div>
-      </div>
-    </nav>
-  </header>
-
-  <div id="overlay"></div>
-
-  <div class="header-perfil" style="padding-top: 50px">
-    <img class="header-image" src="../assets/jpg/teste-header-perfil.jpeg" alt="" id="fotoHeader" />
-  </div>
-  <div class="info-perfil">
-    <div class="perfil-containt">
-      <div class="div-1">
-        <div class="icon-profile">
-          <img src="../assets/jpg/foto-perfil-exemplo.jpg" id="fotoPerfil" />
+        <div class="div-2">
+          <p><span id="seguindoCount"></span> seguindo</p>
+          <a class="ver-mais-seguindo" id="link-seguindo"><img src="../assets/png/icones/icone_setaBaixoPreta.png" alt="Ver perfil que segue" title="Ver perfis que segue"></a>
         </div>
-        <h4 class="name-profile" style="color: #352c28"></h4>
-      </div>
-      <div class="div-2">
-        <p><span>0</span> seguindo</p>
       </div>
     </div>
-  </div>
 
-  <div class="main-perfil">
-    <section class="feed-profile" style="
-          display: flex;
-          justify-content: flex-start;
-          align-items: flex-start;
-        ">
-      <div class="flex main-left">
-        <div class="itens-salvos">
-          <div class="title-itens">
-            <h4>Coleções</h4>
-          </div>
+    <div class="main-perfil">
+      <section class="feed-profile">
 
-          <div class="elementos-salvos">
-            <div class="subcontainer-colecoes">
-              <article class="item-colecao">
-                <a class="icon-colecao">V</a>
-                <a href="">Ver mais tarde</a>
-              </article>
+        <div class="flex main-left" style="margin-top: -20px;">
 
-              <article class="item-colecao">
-                <a class="icon-colecao">V</a>
-                <a href="">Ver mais tarde</a>
-              </article>
+        <!--Coleções (fixo)-->
+        <!--menu coleções para mobile-->
+        <div class="flex main-right">
+              <div class="menu-perfil-mobile" id="abrir-secao-colecoes">
+          <a style="font-weight: 700;" id="txt-abrir-secao-colecoes">Coleções</a>
             </div>
-
-
-            <div style="
-                  width: 95%;
-                  display: flex;
-                  flex-direction: row;
-                  justify-content: center;
-                  margin: 1.5rem 0;
-                ">
-              <a class="nova-colecao" href="" id="abrirCriarColecao">Nova coleção</a>
-            </div>
-          </div>
         </div>
-      </div>
+        
+        <!--coleções desktop-->
+          <div class="itens-salvos" id="secao-colecoes">
+            <div class="title-itens" id="titulo-secao-colecoes" ><h4>Coleções</h4></div>
 
-      <div class="flex main-right">
-        <article class="post">
-          <div class="autor-post">
-            <div class="flex" style="flex-direction: column;">
-              <div class="flex">
-                <div class="autor-photo">
-                  <img src="../assets/jpg/foto-perfil-exemplo.jpg" alt="" />
-                </div>
-                <a class="autor" href="../">Cartinha Mágica</a>
+            <div class="elementos-salvos" >
+              <div class="subcontainer-colecoes" id="subcontainer-colecoes">
               </div>
-              <span class="horario">Fev 26 às 19h19</span>
-            </div>
-            <div>
-              <div class="options-container">
-                <a class="options-post" onclick="toggleOptions(this)">...</a>
-                <div class="dropdown-options">
-                  <a class="btnSalvarPost" style="cursor: pointer;">Salvar post</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="corpo-post">
-            <p>
-              Esse projeto tem o intuito de levar alegria e esperança para crianças que muitas vezes não têm condições
-              de ter um Natal tão especial. A cada ano, voluntários se unem para arrecadar doações e organizar essa
-              festa inesquecível.
-            </p>
-          </div>
-          <div class="reactions-post">
-            <div style="width: 100%; gap: 5px; align-items: center;" class="flex">
-              <img src="../assets/png/icones/icone_curtir.png" width="16px" height="16px" alt="">
-              <span style=" color: #a6a6a6; font-weight: bold; font-size: 13px;">100</span>
-            </div>
-
-            <a class="reaction">Curtir</a>
-            <a class="reaction">Compartilhar</a>
-          </div>
-        </article>
-
-        <article class="post">
-          <div class="autor-post">
-            <div class="flex" style="flex-direction: column;">
-              <div class="flex">
-                <div class="autor-photo">
-                  <img src="../assets/jpg/foto-perfil-exemplo.jpg" alt="" />
-                </div>
-                <a class="autor" href="../">Cartinha Mágica</a>
-              </div>
-              <span class="horario">Fev 26 às 19h19</span>
-            </div>
-            <div>
-              <div class="options-container">
-                <a class="options-post" onclick="toggleOptions(this)">...</a>
-                <div class="dropdown-options">
-                  <a class="btnSalvarPost" style="cursor: pointer;">Salvar post</a>
-                </div>
+              
+              <div class="botao-nova-colecao">
+                <a class="nova-colecao" href="" id="abrirCriarColecao">Nova coleção</a>
               </div>
             </div>
           </div>
-          <div class="corpo-post">
-            <p>
-              Esse projeto tem o intuito de levar alegria e esperança para crianças que muitas vezes não têm condições
-              de ter um Natal tão especial. A cada ano, voluntários se unem para arrecadar doações e organizar essa
-              festa inesquecível.
-            </p>
-          </div>
-          <div class="reactions-post">
-            <div style="width: 100%; gap: 5px; align-items: center;" class="flex">
-              <img src="../assets/png/icones/icone_curtir.png" width="16px" height="16px" alt="">
-              <span style=" color: #a6a6a6; font-weight: bold; font-size: 13px;">100</span>
+        </div> 
+
+        <div class="flex main-right">
+
+        <!-- ********** Seção Coleção ********** -->
+
+      <div class="flex" id="secao-colecao" style="display: none; align-items: center; justify-content: center; width: 100%">
+
+        <!-- AQUI VAI FICAR AS POSTAGENS LISTADAS -->
+
+                <!-- <article class="post">
+                    <div class="autor-post">
+                        <div class="flex" style="flex-direction: column;">
+                            <div class="flex">
+                                <div class="autor-photo">
+                                    <img src="../assets/jpg/foto-perfil-exemplo.jpg" alt="" />
+                                </div>
+                                <a class="autor" href="../">Cartinha Mágica</a>
+                            </div>
+                            <span class="horario">Fev 26 às 19h19</span>
+                        </div>
+                        <div>
+                            <div class="options-container">
+                                <a class="options-post" onclick="toggleOptions(this)">...</a>
+                                <div class="dropdown-options">
+                    <a class="btnSalvarPost" style="cursor: pointer">Salvar post</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="corpo-post">
+                        <p>
+                            Esse projeto tem o intuito de levar alegria e esperança para crianças que muitas vezes não têm condições de ter um Natal tão especial. A cada ano, voluntários se unem para arrecadar doações e organizar essa festa inesquecível.
+                        </p>
+                    </div>
+                    <div class="reactions-post">
+
+                        <a class="btn-remover-post-colecao" id="btn-remover-post-colecao" title="Remover da coleção">
+                          <img src="../assets/png/icones/icone_salvar-duplo.png" alt="">
+                        </a>
+
+                        <div style="width: 100%; gap: 5px; align-items: center;" class="flex">
+                            <img src="../assets/png/icones/icone_curtir.png" width="16px" height="16px" alt="">
+                            <span style=" color: #a6a6a6; font-weight: bold; font-size: 13px;">100</span>
+                        </div>
+                        
+                        <a class="reaction" >Curtir</a>
+                        <a class="reaction" >Compartilhar</a>
+                    </div>
+                </article> -->
+          </div> 
+
+  <!-- ********** Seção ver ongs seguindo ********** -->
+
+<div class="flex" id="secao-seguindo" style="align-items: center; justify-content: center; width: 100%">
+  <div class="container container-seguindo">
+    <div class="title-itens" style="margin-bottom: 5px;">
+      <h4>Contas que você segue</h4>
+    </div>
+    <div id="lista-seguindo" style=""></div>
+  </div>
+</div>
+
+
+        </div>
+      </section>
+    </div>
+
+    <!--MODAIS-->
+
+    <!-- MODAL CRIAR COLECAO-->
+    <div id="criarColecao">
+      <div class="modal-header">
+        <h1 class="modal-title">Criar nova coleção</h1>
+        <button class="close-modal" id="fecharCriarColecao">X</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="desc-criarcolecao">
+          <span>Crie uma nova coleção para organizar seus itens salvos.</span>
+        </div>
+
+        <div class="form-criarcolecao">
+          <form action="">
+            <label for="nomeColecao">Nome da coleção</label>
+            <input
+              type="text"
+              id="nomeColecao"
+              name="nomeColecao"
+              placeholder="Ex: Pets, Causa Infantil, etc"
+            />
+
+            <div class="botoes-criarcolecao">
+              <button id="btn-cancelar-criarcolecao" type="button">
+                Cancelar
+              </button>
+
+              <button id="btn-criar-criarcolecao" type="submit">
+                Criar
+              </button>
             </div>
-
-            <a class="reaction">Curtir</a>
-            <a class="reaction">Compartilhar</a>
-          </div>
-        </article>
-      </div>
-
-
-    </section>
-  </div>
-
-  <div id="modalsairconta">
-    <div class="modal-header">
-      <h1 class="modal-title">Sair</h1>
-      <button class="close-modal" id="fecharSaida">X</button>
-    </div>
-
-    <div class="modal-body">
-      <div class="desc-sairconta">
-        <span>Você tem certeza que deseja sair da conta? </span>
-      </div>
-
-      <div class="opcoes-sairconta">
-        <button id="btn-cancelar-sairconta">Cancelar</button>
-
-        <button id="btn-sair-sairconta">Sair</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- MODAL CRIAR COLECAO-->
-  <div id="criarColecao">
-    <div class="modal-header">
-      <h1 class="modal-title">Criar nova coleção</h1>
-      <button class="close-modal" id="fecharCriarColecao">X</button>
-    </div>
+    <!-- MODAL SALVAR POST -->
 
-    <div class="modal-body">
-      <div class="desc-criarcolecao">
-        <span>Crie uma nova coleção para organizar seus itens salvos.</span>
-      </div>
-
-      <div class="form-criarcolecao">
-        <form action="">
-          <label for="nomeColecao">Nome da coleção</label>
-          <input type="text" id="nomeColecao" name="nomeColecao" placeholder="Ex: Pets, Causa Infantil, etc" />
-
-          <div class="botoes-criarcolecao">
-            <button id="btn-cancelar-criarcolecao" type="button">
-              Cancelar
-            </button>
-
-            <button id="btn-criar-criarcolecao" type="submit">
-              Criar
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL SALVAR POST -->
-
-  <div id="salvarPublicacao">
-    <div class="cabecalho-post" style="border-bottom: 2px solid #f5f5f5">
-      <div style="
+    <div id="salvarPublicacao">
+      <div class="cabecalho-post" style="border-bottom: 2px solid #f5f5f5">
+        <div
+          style="
             width: 95%;
             display: flex;
             justify-content: center;
             align-items: center;
-          ">
-        <h3 style="font-size: 12pt; color: #2c2f2c">Salvar em:</h3>
+          "
+        >
+          <h3 style="font-size: 12pt; color: #2c2f2c">Salvar em:</h3>
+        </div>
+        <a href="../" class="sair" id="sairSalvarPublicacao">X</a>
       </div>
-      <a href="../" class="sair" id="sairSalvarPublicacao">X</a>
-    </div>
 
-    <div class="corpo-post">
-      <div class="subcontainer">
-        <label for="vermaistarde1">Ver mais tarde</label>
-        <input type="checkbox" name="vermaistarde" id="vermaistarde1" style="border-radius: 50%" />
+      <div class="corpo-post">
+        <div class="subcontainer">
+          <label for="vermaistarde1">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde1"
+            style="border-radius: 50%"
+          />
+        </div>
+        <div class="subcontainer">
+          <label for="vermaistarde2">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde2"
+            style="border-radius: 50%"
+          />
+        </div>
+        <div class="subcontainer">
+          <label for="vermaistarde3">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde3"
+            style="border-radius: 50%"
+          />
+        </div>
+        <div class="subcontainer">
+          <label for="vermaistarde4">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde4"
+            style="border-radius: 50%"
+          />
+        </div>
+        <div class="subcontainer">
+          <label for="vermaistarde5">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde5"
+            style="border-radius: 50%"
+          />
+        </div>
+        <div class="subcontainer">
+          <label for="vermaistarde6">Ver mais tarde</label>
+          <input
+            type="checkbox"
+            name="vermaistarde"
+            id="vermaistarde6"
+            style="border-radius: 50%"
+          />
+        </div>
       </div>
-      <div class="subcontainer">
-        <label for="vermaistarde2">Ver mais tarde</label>
-        <input type="checkbox" name="vermaistarde" id="vermaistarde2" style="border-radius: 50%" />
-      </div>
-      <div class="subcontainer">
-        <label for="vermaistarde3">Ver mais tarde</label>
-        <input type="checkbox" name="vermaistarde" id="vermaistarde3" style="border-radius: 50%" />
-      </div>
-      <div class="subcontainer">
-        <label for="vermaistarde4">Ver mais tarde</label>
-        <input type="checkbox" name="vermaistarde" id="vermaistarde4" style="border-radius: 50%" />
-      </div>
-      <div class="subcontainer">
-        <label for="vermaistarde5">Ver mais tarde</label>
-        <input type="checkbox" name="vermaistarde" id="vermaistarde5" style="border-radius: 50%" />
-      </div>
-      <div class="subcontainer">
-        <label for="vermaistarde6">Ver mais tarde</label>
-        <input type="checkbox" name="vermaistarde" id="vermaistarde6" style="border-radius: 50%" />
-      </div>
-    </div>
-    <br /><br />
-    <div style="
+      <br /><br />
+      <div
+        style="
           width: 100%;
           display: flex;
           justify-content: flex-end;
           align-items: flex-start;
           margin-bottom: 10px;
           margin-right: 10px;
-        ">
-      <a href="" class="btn-confirmar">Concluir</a>
+        "
+      >
+        <a href="" class="btn-confirmar">Concluir</a>
+      </div>
     </div>
-  </div>
 
+    <!-- EXCLUIR COLEÇÃO -->
+    <div id="excluirColecao">
+      <div class="modal-header">
+        <h1 class="modal-title">Excluir Coleção</h1>
+        <a href="" class="sair" style="color:#f4863e; font-weight: 700;">X</a>
+      </div>
+
+      <div class="modal-body">
+        <div class="desc-excluirmodal">
+          <span>Você tem certeza que deseja excluir coleção? </span>
+        </div>
+
+        <div class="opcoes-excluirmodal">
+          <button id="cancelarExcluirColecao">Cancelar</button>
+
+          <button id="btn-sair-excluirmodal">Excluir</button>
+        </div>
+      </div>
+    </div>
+
+            <!-- REMOVER POSTAGEM DA COLEÇÃO -->
+
+    <div id="removerPostColecao">
+      <div class="modal-header">
+        <h1 class="modal-title">Remover publicação da coleção</h1>
+        <a href="" class="sair" style="color:#f4863e; font-weight: 700;">X</a>
+      </div>
+
+      <div class="modal-body">
+        <div class="desc-excluirmodal">
+          <span>Você tem certeza que deseja removar a publicação da coleção? </span>
+        </div>
+
+        <div class="opcoes-excluirmodal">
+          <button id="btn-cancelar-remover-post-modal">Cancelar</button>
+
+          <button id="btn-sair-excluirmodal">Remover</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="lightbox-modal" class="lightbox-hidden">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <img id="lightbox-img" src="" alt="Imagem em destaque" />
+         <button id="lightbox-prev" onclick="navigateLightbox(-1)">
+    <img src="../assets/png/arrowuneong.png" alt="Anterior" />
+  </button>
+  <button id="lightbox-next" onclick="navigateLightbox(1)">
+    <img src="../assets/png/arrowuneong.png" alt="Próxima" />
+  </button>
+    </div>
+
+    <!-- SCRIPTS-->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Delay de 500ms (ou mais) para garantir que o backend carregou
+  setTimeout(() => {
+
+    // scripts para esconder/aparecer seções
+
+    const secaoColecao = document.getElementById('secao-colecao');
+    const secaoSeguindo = document.getElementById('secao-seguindo');
+
+    const linkColecao = document.querySelectorAll(".item-colecao");
+    const linkSeguindo = document.getElementById('link-seguindo');
+
+    secaoSeguindo.style.display = "flex";
+
+    // evento de clicar no botao de colecao
+    linkColecao.forEach(element => {
+      element.addEventListener("click", function () {
+        secaoColecao.style.display = "flex";
+        secaoSeguindo.style.display = "none";
+
+        // Remove destaque de todos
+        linkColecao.forEach(el => {
+          el.style.color = "";
+          el.style.fontWeight = "";
+        });
+
+        // Destaca apenas o clicado
+        element.style.fontWeight = "bold";
+        element.style.color = "#e74c3c";    
+
+        linkMidiaText.style.color = "";
+        linkSobre.style.color = "";
+        linkPostagens.style.color = "";
+        linkMidiaMobile.style.color = "";
+        linkSobreMobile.style.color = "";
+        linkPostagensMobile.style.color = "";
+      });
+    });
+
+    // evento de clicar no botao de seguindo
+    linkSeguindo.addEventListener("click", () => {
+      secaoSeguindo.style.display = "flex";
+      secaoColecao.style.display = "none";
+
+      linkColecao.forEach(el => {
+        el.style.color = "";
+        el.style.fontWeight = "";
+      });
+    });
+
+    // Versão mobile da seção coleções (aparecer/desaparecer)
+    const abrirSecaoColecoes = document.getElementById('abrir-secao-colecoes');
+    const secaoColecoes = document.getElementById('secao-colecoes');
+    const TxtAbrirSecaoColecoes = document.getElementById('txt-abrir-secao-colecoes');
+
+    abrirSecaoColecoes.addEventListener('click', (e) => {
+      e.preventDefault();
+      secaoColecoes.classList.toggle('show');
+
+      if (secaoColecoes.classList.contains('show')) {
+        TxtAbrirSecaoColecoes.style.color = "#e74c3c"; // cor quando está aberto
+      } else {
+        TxtAbrirSecaoColecoes.style.color = ""; // volta à cor padrão
+      }
+    });
+
+  }, 2500); // 500ms de delay, ajuste conforme necessário
+});
+
+
+
+</script>
+
+<!-- backend -->
   <script>
     window.onload = async () => {
       try {
@@ -313,25 +481,412 @@
         }
 
 
+        document.querySelector(".foto-perfil").src = data.foto_perfil_usuario;
         document.getElementById("fotoPerfil").src = data.foto_perfil_usuario;
-        document.getElementById("fotoPerfil2").src = data.foto_perfil_usuario;
- 
-        document.getElementById("fotoHeader").src = data.foto_header_usuario;
 
+        document.querySelector(".header-image").src = data.foto_header_usuario;
         document.querySelector(".name-account").innerHTML = data.Nome_user;
         document.querySelector(".name-profile").innerHTML = data.Nome_user;
         document.querySelector(".email-account").innerHTML = data.Email_user;
+        console.log(data);
+
+        // carregar contagem de seguindo
+        verificarSeguindo(data.id_user);
+        
+        // carregar as informações das ongs que esse perfil segue
+        verSeguindo(data.id_user);
+
+        // carrega as colecoes
+        listarColecoes(data.id_user);
 
       } catch (err) {
         console.error("Erro ao carregar dados:", err);
       }
 
+      async function verificarSeguindo(id) {
+        try {
+          const res = await fetch(`/api/seguir/checkUser`, {
+            method: "POST",
+            credentials: "include", // necessário para enviar o cookie da sessão
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ seguidor_id: id })
+          });
+          const data = await res.json();
 
-    };
+          if (!res.ok) {
+            console.error(data.error);
+            return;
+          }
+
+          document.getElementById("seguindoCount").innerText = data.count;
+
+        } catch (err) {
+          console.error("Erro ao carregar dados:", err);
+        }
+      }
+async function verSeguindo(id) {
+  try {
+    const res = await fetch(`/api/seguir/verSeguindo?seguidor_id=${id}`, {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    const data = await res.json();
+    console.log("Dados recebidos de verSeguindo:", data);
+
+    const ongs = data.ONG;
+
+    if (!Array.isArray(ongs)) {
+      console.error("Resposta inesperada da API:", data);
+      return;
+    }
+
+    const listaContainer = document.getElementById("lista-seguindo");
+    listaContainer.innerHTML = "";
+
+    if (ongs.length === 0) {
+      listaContainer.innerHTML = "<p>Você ainda não segue nenhuma ONG.</p>";
+      return;
+    }
+
+    ongs.forEach((ong) => {
+      const article = document.createElement("article");
+      article.classList.add("conta-seguindo");
+
+      const foto = (ong.foto_perfil_ong || "../assets/jpg/foto-perfil-exemplo.jpg").trim();
+
+      article.innerHTML = `
+        <img class="icone-conta-seguindo" src="${foto}" alt="${ong.nome_ong}" />
+        <a class="autor-conta-seguindo">${ong.nome_ong}</a>
+        <a href="../user/perfil-ong.html?id=${ong.id_ong}" class="button-ver-perfil">Visitar</a>
+      `;
+
+      listaContainer.appendChild(article);
+    });
+
+  } catch (err) {
+    console.error("Erro ao carregar dados:", err);
+  }
+}
+
+
+      }
+
+async function criarColecao() {
+  const nomeColecao = document.getElementById("nomeColecao").value.trim();
+
+  if (!nomeColecao) {
+    alert("Por favor, insira um nome para a coleção.");
+    return;
+  }
+
+  try {
+    const response = await fetch("/api/colecao", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ nomeColecao }),
+    });
+
+    const result = await response.json();
+    console.log(result);
+
+    if (response.ok) {
+      alert("Coleção criada com sucesso!");
+      window.location.reload(); //recarrega a página
+    } else {
+      alert(result.error || "Erro ao criar coleção.");
+    }
+  } catch (error) {
+    console.error("Erro ao criar coleção:", error); // Log do erro real
+    res.status(500).json({ error: error.message });
+  }
+}
+
+async function listarColecoes(id_usuario) {
+  try {
+    // Substitua pelo ID do usuário logado ou use sessão
+    const userId = id_usuario; // se necessário
+    const response = await fetch(`/api/colecoes/${userId}`);
+    const colecoes = await response.json();
+
+    const container = document.getElementById("subcontainer-colecoes");
+    container.innerHTML = ""; // limpa o container antes de preencher
+
+    colecoes.forEach((colecao) => {
+      const primeiraLetra = colecao.nome_colecao.charAt(0).toUpperCase();
+
+      const artigo = document.createElement("article");
+      artigo.classList.add("item-colecao");
+
+      artigo.innerHTML = `
+        <a class="icon-colecao">${primeiraLetra}</a>
+        <a onclick="carregarColecao(${colecao.id_colecao})">${colecao.nome_colecao}</a>
+        <div class="opcoes-colecao">
+          <a class="icone-acao-colecao btnExcluirColecao" href="#" title="Excluir coleção" onclick="excluirColecao(${colecao.id_colecao})">
+            <img src="../assets/png/icones/icone_excluir.png" alt="Excluir coleção">
+          </a>
+        </div>
+      `;
+
+      container.appendChild(artigo);
+    });
+  } catch (error) {
+    console.error("Erro ao listar coleções:", error);
+  }
+}
+
+async function excluirColecao(id_colecao) {
+  try {
+    const response = await fetch(`/api/colecao/${id_colecao}`, {
+      method: "DELETE",
+    });
+
+    const result = await response.json();
+    console.log(result);
+
+    if (response.ok) {
+      alert("Coleção excluída com sucesso!");
+      window.location.reload(); // recarrega ou substitua por função de atualização da interface
+    } else {
+      alert(result.error || "Erro ao excluir coleção.");
+    }
+  } catch (error) {
+    console.error("Erro ao excluir coleção:", error); // Log do erro
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+ 
+
+  const form = document.querySelector("#criarColecao form");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault(); // evita recarregar a página
+    await criarColecao();
+  });
+})
+
+async function carregarColecao(idColecao) {
+  try {
+    const res = await fetch(`/api/colecao/${idColecao}`, {
+      method: "GET",
+      credentials: "include"
+    });
+
+    if (!res.ok) throw new Error("Erro ao carregar posts da coleção");
+
+    const posts = await res.json();
+
+    const colecaoDiv = document.getElementById("secao-colecao");
+    colecaoDiv.innerHTML = "";
+    colecaoDiv.style.flexDirection = "column";
+    colecaoDiv.style.gap = "15px";
+
+    if (!posts.length) {
+      colecaoDiv.innerHTML = `<p style="text-align:center; color: gray;">Nenhuma postagem nesta coleção.</p>`;
+      return;
+    }
+
+    posts.forEach(post => {
+      const postDiv = document.createElement("article");
+      postDiv.classList.add("post");
+
+      const midias = Array.isArray(post.imagem_url)
+        ? post.imagem_url
+        : JSON.parse(post.imagem_url || "[]");
+
+      const midia = midias.map(url => {
+        return url.endsWith(".mp4")
+          ? `<video controls src="${url}" width="300"></video>`
+          : `<img src="${url}" width="300" />`;
+      }).join("");
+
+      postDiv.innerHTML = `
+        <div class="autor-post">
+          <div class="flex" style="flex-direction: column;">
+            <div class="flex">
+              <div class="autor-photo">
+                <img src="${post.ONG.foto_perfil_ong}" alt="" />
+              </div>
+              <a class="autor" href="../">${post.ONG?.nome_ong || "ONG desconhecida"}</a>
+            </div>
+            <span class="horario">${new Date(post.data_hora).toLocaleString("pt-BR")}</span>
+          </div>
+          <div>
+            <div class="options-container" data-id="${post.id_post}">
+              <a class="options-post" onclick="toggleOptions(this)">...</a>
+              <div class="dropdown-options">
+<a class="btnRemoverItem" 
+   onclick="removerItemColecaoFrontend(${post.id_cItem})" 
+   style="cursor: pointer">
+   Remover da coleção
+</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="corpo-post">
+          <p>${post.conteudo_post}</p>
+          <div class="fotos-post">${midia}</div>
+        </div>
+        <div class="reactions-post">
+          <div style="width: 100%; gap: 5px; align-items: center;" class="flex">
+          </div>
+
+          <a class="reaction" href="">Compartilhar</a>
+        </div>
+      `;
+
+      colecaoDiv.appendChild(postDiv);
+      console.log("🧠 id_cItem enviado:", post.id_cItem);
+      console.log(post)
+    });
+
+    configurarEventosPostsColecao();
+    postsFuncoes();
+
+  } catch (error) {
+    console.error("Erro ao carregar posts da coleção:", error);
+  }
+}
+
+// Função para adicionar os eventos de opções e salvar post
+function configurarEventosPostsColecao() {
+  document.querySelectorAll(".options-post").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const container = btn.parentElement;
+      container.classList.toggle("active");
+      e.stopPropagation();
+    });
+  });
+
+  document.querySelectorAll(".btnSalvarPost").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      abrir(document.getElementById("salvarPublicacao"));
+    });
+  });
+}
+
+async function removerItemColecaoFrontend(id_cItem) {
+  if (!confirm("Deseja realmente remover este item da coleção?")) return;
+
+  try {
+    const response = await fetch(`/api/colecao/item/${id_cItem}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => null);
+      const message = errorData?.error || "Erro ao remover item da coleção.";
+      throw new Error(message);
+    }
+
+    alert("✅ Item removido com sucesso!");
+    window.location.reload();
+
+  } catch (error) {
+    console.error("❌ Erro ao remover item da coleção:", error);
+    alert("❌ Falha ao remover item. Veja o console para detalhes.");
+  }
+}
+
+
+async function postsFuncoes() {
+    document.querySelectorAll('.fotos-post').forEach(galeria => {
+      const qtd = galeria.querySelectorAll('img').length;
+      galeria.classList.add(`fotos-post-${qtd}`);
+    });
+
+    let currentImageIndex = 0;
+    let imageList = [];
+
+    // Adiciona evento em todas as imagens
+    document.querySelectorAll('.fotos-post img').forEach(img => {
+      img.addEventListener('click', () => {
+        const parent = img.closest('.fotos-post');
+        imageList = Array.from(parent.querySelectorAll('img')).map(i => i.src);
+        currentImageIndex = imageList.indexOf(img.src);
+        openLightbox();
+      });
+    });
+
+    function openLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+
+      const showButtons = imageList.length > 1;
+      prevBtn.style.display = showButtons ? 'flex' : 'none';
+      nextBtn.style.display = showButtons ? 'flex' : 'none';
+
+      modal.classList.remove('lightbox-hidden');
+      img.src = imageList[currentImageIndex];
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox-modal').classList.add('lightbox-hidden');
+    }
+
+    function navigateLightbox(direction) {
+      currentImageIndex += direction;
+
+      if (currentImageIndex < 0) currentImageIndex = imageList.length - 1;
+      if (currentImageIndex >= imageList.length) currentImageIndex = 0;
+
+      document.getElementById('lightbox-img').src = imageList[currentImageIndex];
+    }
+
+    // Botão fechar
+    const closeBtn = document.querySelector(".lightbox-close");
+    if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+
+    // Navegação
+    const prevBtn = document.getElementById("lightbox-prev");
+    if (prevBtn) prevBtn.addEventListener("click", () => navigateLightbox(-1));
+
+    const nextBtn = document.getElementById("lightbox-next");
+    if (nextBtn) nextBtn.addEventListener("click", () => navigateLightbox(1));
+
+    // === Fecha ao clicar no fundo (parte escura) ===
+    const modal = document.getElementById("lightbox-modal");
+    if (modal) {
+      modal.addEventListener("click", (e) => {
+        // só fecha se clicar fora da imagem e dos botões
+        if (e.target === modal) {
+          closeLightbox();
+        }
+      });
+    }
+
+}
+
+
+
+
+
+
+
+
+      
 
   </script>
 
-  <script src="../js/funcionalidades.js"></script>
-</body>
 
+
+    <script src="../js/funcionalidades.js"></script>
+    <script src="../js/feed.js"></script>
+    <script src="../js/search.js"></script>
+          <script src="../js/carregamento.js"></script>
+  </body>
 </html>

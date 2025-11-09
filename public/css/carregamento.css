@@ -1,0 +1,117 @@
+
+@font-face {
+  font-family: "Cocomat Pro Bold";
+  src: url("./assets/fonts/Cocomat.Pro/CocomatPro-Bold.ttf");
+}
+
+
+body {
+  margin: 0; 
+}
+
+/* Tela de carregamento */
+#loading-screen {
+  position: fixed;  /* Fixa a tela de carregamento na tela */
+  inset: 0;  /* Preenche toda a tela */
+  background: #f2f5f5;  /* Cor de fundo da tela */
+  display: flex;  /* Usado para centralizar o conteúdo */
+  justify-content: center;  /* Alinha o conteúdo horizontalmente */
+  align-items: center;  /* Alinha o conteúdo verticalmente */
+  z-index: 9999;  /* Garante que a tela de carregamento apareça acima de outros elementos */
+}
+
+/* Container para o loader */
+.loader-container {
+  display: flex;  /* Flexbox para alinhar os elementos */
+  flex-direction: column;  /* Organiza os itens em coluna */
+  align-items: center;  /* Alinha os itens no centro */
+}
+
+/* Estilo do texto de carregamento */
+.carregamentoTexto {
+  display: flex;  /* Flexbox para alinhar o texto e os pontos */
+  flex-direction: row;  /* Organiza os itens em linha */
+  align-items: center;  /* Alinha os itens no centro */
+  margin-top: -20px;  /* Aproxima a logo do "Carregando" */
+}
+
+/* Estilo do título "Carregando" */
+h1 {
+  color: #622110;  /* Cor do texto */
+  font-size: 5vh;  /* Tamanho da fonte */
+  font-family: 'Cocomat Pro Bold';  /* Fonte do título */
+  margin: 0;  /* Remove a margem padrão */
+}
+
+/* Estilo dos pontos (reticências) */
+.dots {
+  display: flex;  /* Flexbox para alinhar os pontos */
+  flex-direction: row;  /* Organiza os pontos em linha */
+  margin-left: 5px;  /* Ajusta o espaço entre "Carregando" e os pontos */
+  margin-top: 5px;  /* Adiciona espaço entre o texto e os pontos */
+}
+
+/* Estilo de cada ponto (span) */
+.dots span {
+  display: block;  /* Torna o elemento de bloco */
+  width: 5.5px;  /* Tamanho dos pontos */
+  height: 5.5px; /* Tamanho dos pontos */
+  background-color: #622110;  /* Cor do ponto */
+  border-radius: 50%;  /* Deixa os pontos circulares */
+  opacity: 0;  /* Inicialmente invisível */
+  animation: bounceDots 1.5s infinite;  /* Animação para os pontos */
+  margin-left: 5px;  /* Espaçamento entre os pontos */
+  transform: translateY(2px);  /* Desloca os pontos para baixo */
+}
+
+/* Animação para os pontos */
+.dots span:nth-child(1) {
+  animation-delay: 0s;  /* Atraso da animação para o primeiro ponto */
+}
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;  /* Atraso da animação para o segundo ponto */
+}
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;  /* Atraso da animação para o terceiro ponto */
+}
+
+/* Definindo a animação dos pontos */
+@keyframes bounceDots {
+  0%, 20% {
+    opacity: 0;  /* Ponto invisível no início */
+    transform: translateY(0);  /* Começa no nível original */
+  }
+  40% {
+    opacity: 1;  /* Ponto visível */
+    transform: translateY(-5px);  /* Ponto sobe */
+  }
+  60% {
+    transform: translateY(0);  /* Ponto volta para a posição original */
+  }
+  80%, 100% {
+    opacity: 0;  /* Ponto volta a desaparecer */
+  }
+}
+
+/* Logo com animação de revelação */
+.logo-reveal {
+  width: 280px;  /* Largura da logo */
+  height: 280px;  /* Altura da logo */
+  background: url('../assets/svg/Logo\ UneONG\ FINAL.svg') no-repeat center/contain;  /* Caminho da logo */
+  clip-path: inset(0 0 0 100%);  /* Esconde a logo inicialmente */
+  animation: revealRightToLeftLoop 2.5s ease-in-out infinite;  /* Animação da revelação */
+  margin-bottom: -40px;  /* Aproxima a logo do texto */
+}
+
+/* Definindo a animação da revelação da logo */
+@keyframes revealRightToLeftLoop {
+  0% {
+    clip-path: inset(0 0 0 100%);  /* Logo invisível inicialmente */
+  }
+  50%, 51% {
+    clip-path: inset(0 0 0 0);  /* Logo visível completamente */
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);  /* Logo desaparecendo da direita para a esquerda */
+  }
+}

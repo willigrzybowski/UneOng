@@ -66,7 +66,7 @@ export const listarMidias = async () => {
       imagem_midia,
       descricao_midia,
       data_midia,
-      ONG (id_ong, nome_ong)
+      ONG (id_ong, nome_ong, foto_perfil_ong)
     `)
     .order("data_midia", { ascending: false });
 
@@ -88,7 +88,7 @@ export const listarMidiasEspecifica = async (id_ong) => {
         imagem_midia,
         descricao_midia,
         data_midia,
-        ONG!inner (id_ong, nome_ong)
+        ONG!inner (id_ong, nome_ong, foto_perfil_ong)
       `)
       .eq("ONG.id_ong", id)
       .order("data_midia", { ascending: false });
@@ -104,5 +104,65 @@ export const listarMidiasEspecifica = async (id_ong) => {
     return [];
   }
 };
+
+
+export const deletarMidia = async (id_midia, id_ong) => {
+  try {
+    // 1. Buscar mídia no banco
+    const { data: midia, error: selectError } = await supabase
+      .from("midias")
+      .select("*")
+      .eq("id_midia", id_midia)
+      .single();
+
+    if (selectError) {
+      throw new Error(`Erro ao buscar mídia: ${selectError.message}`);
+    }
+
+    if (!midia) {
+      throw new Error("Mídia não encontrada");
+    }
+
+    // 2. Excluir imagem(ns) do storage
+    if (midia.imagem_midia) {
+      // Verifica se é um array ou string única
+      const imagens = Array.isArray(midia.imagem_midia)
+        ? midia.imagem_midia
+        : [midia.imagem_midia];
+
+      const paths = imagens.map((url) => {
+        const parts = url.split(`/storage/v1/object/public/imagens/Ongs/midias/${id_ong}/`);
+        return parts[1]; // pega o caminho interno ao bucket
+      }).filter(Boolean); // remove nulos ou vazios
+
+      if (paths.length > 0) {
+        const { error: deleteImgError } = await supabase.storage
+          .from("imagens")
+          .remove(paths.map((p) => `Ongs/midias/${id_ong}/${p}`));
+
+        if (deleteImgError) {
+          console.error("Erro ao deletar imagem do storage:", deleteImgError);
+          // não impede a exclusão da mídia no banco
+        }
+      }
+    }
+
+    // 3. Excluir registro da mídia
+    const { error: deleteMidiaError } = await supabase
+      .from("midias")
+      .delete()
+      .eq("id_midia", id_midia);
+
+    if (deleteMidiaError) {
+      throw new Error(`Erro ao deletar mídia no banco: ${deleteMidiaError.message}`);
+    }
+
+    return true;
+  } catch (err) {
+    console.error("Erro na função deletarMidia:", err);
+    throw err;
+  }
+};
+
 
 

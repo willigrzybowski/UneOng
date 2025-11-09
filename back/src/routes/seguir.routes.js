@@ -3,6 +3,7 @@ import supabase from "../config/supabase.js";
 
 const router = express.Router();
 
+
 router.get("/check", async (req, res) => {
   const { seguidor_id, ong_id } = req.query;
   console.log("Check seguindo:", { seguidor_id, ong_id });
@@ -34,6 +35,76 @@ router.get("/check", async (req, res) => {
     res.status(500).json({ error: "Erro no servidor", details: err });
   }
 });
+
+router.post("/checkUser", async (req, res) => {
+  const { seguidor_id } = req.body;
+
+  if (!seguidor_id) {
+    return res.status(404).json({ error: "Usuário não encontrado" });
+  }
+
+  try {
+    // Contar o número de ONGs que o seguidor segue
+    const { data, error } = await supabase
+      .from("seguidores")
+      .select("ong_id", { count: 'exact' }) // Conta o número de registros
+      .eq("seguidor_id", seguidor_id);
+
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    // Retorna o número de contas que o seguidor tem
+    return res.status(200).json({ count: data.length });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Erro interno do servidor" });
+  }
+});
+
+
+router.get("/verSeguindo", async (req, res) => {
+  const { seguidor_id } = req.query;
+
+  if (!seguidor_id) {
+    return res.status(400).json({ error: "Parâmetro 'seguidor_id' é obrigatório" });
+  }
+
+  try {
+    // Primeiro, pega os IDs das ONGs que o usuário segue
+    const { data: seguidores, error: error1 } = await supabase
+      .from("seguidores")
+      .select("ong_id")
+      .eq("seguidor_id", seguidor_id);
+
+    if (error1) {
+      return res.status(500).json({ error: error1.message });
+    }
+
+    const ongIds = seguidores.map(item => item.ong_id);
+
+    if (ongIds.length === 0) {
+      return res.status(200).json({ ongs: [] });
+    }
+
+    // Agora busca os nomes e fotos das ONGs com base nos IDs
+    const { data: ONG, error: error2 } = await supabase
+      .from("ONG")
+      .select("id_ong, nome_ong, foto_perfil_ong")
+      .in("id_ong", ongIds);
+
+    if (error2) {
+      return res.status(500).json({ error: error2.message });
+    }
+
+    return res.status(200).json({ ONG });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Erro interno do servidor" });
+  }
+});
+
+
 
 
 router.post("/", async (req, res) => {
