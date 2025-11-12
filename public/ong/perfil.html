@@ -50,11 +50,7 @@
           /></a>
         </div>
 
-       <div style="display: flex; flex-direction: column; position: relative;">
-        <input type="text" name="txtbuscar" id="txtbuscar" class="buscar" placeholder="Procure uma ong..." />
-        <div id="results" class="results"></div>
-      </div>
-      <label for="txtbuscar"><img src="../assets/png/icones/icone_buscar.png" class="buscarIcon" alt=""></label>
+
       
         <div
           class="nav-elements"
@@ -250,7 +246,7 @@
 
         <!-- ********** Seção Coleção ********** -->
 
-      <div class="flex" id="secao-colecao" style="display: none; align-items: center; justify-content: center; width: 100%">
+      <div class="flex" id="secao-colecao" style="display: none; align-items: flex-start; justify-content: flex-start ; width: 100%; overflow-y: auto; max-height: 500px; display: flex; flex-direction: column; gap: 2rem;">
 
         <!--Postagem salva numa coleção-->        
         <!-- POSTS SÃO GERADOS AUTOMATICAMENTE -->
@@ -764,9 +760,11 @@ async function carregarCurtidas(postId) {
     `;
 
         feedDiv.appendChild(postDiv);
-        configurarEventosPosts();
+        
 
       });
+
+      configurarEventosPosts();
     }
 
     carregarFeed();

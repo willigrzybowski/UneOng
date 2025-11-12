@@ -234,7 +234,7 @@
 
         <!-- ********** Seção Coleção ********** -->
 
-      <div id="secao-colecao" style="display: none; align-items: center; justify-content: center; width: 100%;">
+      <div id="secao-colecao" style="display: none; align-items: flex-start; justify-content: flex-start ; width: 100%; overflow-y: auto; max-height: 500px; display: flex; flex-direction: column; gap: 2rem;">
 
           </div>  
 
@@ -974,6 +974,7 @@ async function salvarPostEmColecoes() {
 
     // Limpa checkboxes
     document.querySelectorAll('input[name="colecoes"]').forEach(c => c.checked = false);
+    window.location.reload();
 
   } catch (error) {
     console.error("Erro ao salvar nas coleções:", error);
